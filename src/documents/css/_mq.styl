@@ -1,0 +1,152 @@
+@import '_settings'
+
+
+// smaller header
+@media(max-width: 1200px)
+    h1
+        font-size 82px
+    h2
+        font-size 45px
+    h3
+        font-size 30px
+    header
+        nav div
+            &.left
+                margin-left -400px
+
+            &.right
+                margin-right -440px
+
+        h1
+            height 90px !important
+
+
+
+@media(max-width: 1000px)
+    .prizes
+        padding-bottom 20px
+        .other
+            li
+                h5 
+                    font-size 25px
+
+                span
+                    display block
+                    font-size 18px
+
+@media(max-width: 900px)
+    h1
+        font-size 62px
+    h2
+        font-size 37px
+    h3
+        font-size 26px
+    .wrap
+        padding-left 40px
+        padding-right 40px
+    header
+        nav div
+            a
+                font-size 20px
+            &.left
+                margin-left -360px
+
+            &.right
+                margin-right -400px
+
+    .prizes
+        .other
+            padding-top 10px
+            li
+                display block
+                h5,span
+                    text-align center
+                padding 0
+                margin .5em 0
+                border-width 0px !important
+
+
+@media(max-width: 800px)
+    h1
+        font-size 62px
+    h3
+        font-size 26px
+    .button
+        font-size 20px
+        padding 13px 14px 12px 14px
+        &.small
+            font-size 15px
+    header
+        nav div
+            a
+                font-size 20px
+            &.left
+                margin-left -310px
+
+            &.right
+                margin-right -350px
+        h1
+            padding 0 15px
+            a
+                width 200px
+                height 90px
+
+                background-size contain
+
+@media(max-width: 768px)
+    #headwrap
+        padding 0 10px
+    .borders
+        display none
+
+    .wrap
+        padding-left 10px
+        padding-right 10px
+    h1
+        font-size 28px
+    h2
+        font-size 28px
+    h3
+        font-size 17px
+        margin-top 10px
+
+    header
+        border-bottom 2px solid white
+        h1
+            border 0px
+            margin-bottom -40px
+            margin-top 20px
+        nav 
+            div
+                position static
+
+                &.left, &.right
+                    margin-left 0
+                    margin-right 0
+                    display inline-block
+
+                a
+                    padding 15px 10px
+                    margin 0
+                    font-size 15px
+
+                    &:hover
+                        border 0
+
+            border-top 2px solid white
+            padding 10px 0
+
+
+
+@media(max-width: 550px)
+    .prizes
+        li
+            font-size 1.1em
+            display block
+            margin-right 0 !important
+            margin-bottom 0 !important
+
+            &:first-child
+                font-size 2em
+
+

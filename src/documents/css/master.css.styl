@@ -1,0 +1,367 @@
+@import 'nib'
+@import '_settings'
+@import '_fonts'
+
+blue = #78BAE2
+bordersize = 2px
+borderdist = -10px
+bordertopoffset = 115px
+maxwidth = 1200px
+global-reset()
+
+body
+    background blue
+    color white
+    font-family DIN
+    font-weight 200
+    font-size 22px
+    line-height 1.4
+
+a
+    text-decoration none
+
+    &:hover
+        border-bottom 1px solid blue
+
+#wrapper
+    position relative
+    max-width 1100px
+    margin 0px auto
+
+
+.image-bg
+    width 200%
+    height 200%
+    position absolute
+    top -50%
+    left -50%
+
+    img
+        min-width 50%
+        min-height 50%
+        position absolute
+        top 25%
+        left 25%
+
+.borderwrap
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+    box-sizing border-box
+    padding 0 10px
+
+.borders
+    box-sizing border-box
+    padding 0px
+    position relative
+    max-width maxwidth + 40
+    margin 0px auto
+    height 100%
+    margin-bottom 20px
+    .l,.r,.b
+        display none
+    div
+        background white
+        position absolute
+        z-index 10
+    .l,.r
+        width 0
+        background white
+        position absolute
+        top bordertopoffset
+        bottom borderdist
+
+    .l
+        left 0px
+
+    .r
+        right 0px
+
+    .t,.b
+        border-bottom bordersize solid white
+        left 0px
+        right 0px
+        height bordersize
+        padding 0
+        box-sizing border-box
+
+    .t
+        top bordertopoffset
+        border-bottom-width 4px
+
+    .b
+        bottom borderdist
+
+p
+    margin 19px 0
+
+h1,h2,h3,h4,h5,h6
+    font-weight normal
+h1
+    font-family: Clarendon;
+    font-size: 102px;
+    text-shadow: 1px 2px 0px #000000;
+    margin-bottom: 0
+
+h2
+    font-family: DIN
+    font-weight 200
+    font-size: 56px
+    margin .5em 0
+    
+
+h3
+    font-family: DIN 
+    font-weight 200
+    font-size: 34px
+    margin-top: 0
+
+h1 + h3
+    margin-top: 15px
+
+h4
+    font-family Clarendon
+    font-size 40px
+    margin .5em 0
+    text-transform uppercase
+
+.section
+    background-size cover
+    background-position center center
+    background-repeat no-repeat
+    width 100%
+    overflow hidden
+    position relative
+    padding 20px 0px 35px 0px
+    box-sizing border-box
+
+    a
+        color white
+
+    &.white
+        background white
+        color #444
+
+        a
+            color blue
+
+    &.dark
+        background #333
+        color white
+        a
+            color blue
+
+
+.wrap, header 
+    max-width maxwidth
+    margin 0px auto
+
+.content
+    max-width 900px
+
+
+.upper
+    text-transform uppercase
+
+.small
+    font-family DIN
+    font-size 18px
+
+.button
+    background white
+    font-family DIN
+    font-weight 500
+    font-size 29px
+    color blue
+    padding 20px 23px 19px 23px
+    text-transform uppercase
+    display inline-block
+    margin-right 25px
+    text-decoration none
+    background linear-gradient(#fff, #ddd)
+    border 1px solid white
+
+    &:hover
+        border 1px solid #fff
+
+    &.white
+        color blue
+
+    &.small
+        padding 0
+        background transparent
+        font-family DIN
+        font-size 18px
+        position relative
+        bottom 3px
+        border 0px
+
+        &:hover
+            border-bottom 1px solid white
+
+.wrap
+    padding 0 50px
+    box-sizing border-box
+
+.leader
+    line-height 1
+    padding-top 170px
+    padding-bottom 50px
+
+    h3
+        line-height 1.4
+
+#headwrap
+    padding 0 25px
+    padding-top 26px
+    position absolute 
+    top 0
+    left 0
+    width 100%
+    box-sizing border-box
+    z-index 10
+
+header
+    box-sizing border-box
+    width 100%
+    text-align center
+    position relative
+    clearfix()
+
+
+    nav
+        width 100%
+        >div
+            position absolute
+            bottom 30px
+
+            &.left
+                left 50%
+                margin-left -450px
+            &.right
+                right 50%
+                margin-right -500px
+
+            a
+                margin 0 30px
+                color white
+                text-shadow 1px 1px 0 rgba(0,0,0,.5)
+                font-size 24px
+                font-family DIN
+                font-weight 100
+                text-transform uppercase
+                &:hover
+                    border-bottom-color white
+
+    h1
+        text-indent -9999px
+        display inline-block
+        margin-bottom 0
+        margin-top 0
+        line-height 143px
+        height 90px !important 
+        a
+            height 90px
+            width 140px
+            display block
+            background url(../img/arc.png) center center no-repeat
+            background-size contain
+            &:hover
+                border 0px
+
+.faq
+    h5
+        font-size 1.2em
+        margin-bottom 0
+    p
+        margin-top 0
+        font-family DIN
+
+.prizes
+    padding-bottom 0
+    h4
+        text-align center
+        border-bottom 2px solid white
+
+    ol
+        padding 0
+        margin 0
+        list-style none
+        text-align center
+    li
+        font-family Clarendon
+        text-align center
+        display inline-block
+        margin 0px auto
+        font-size 1.7em
+        sup
+            font-size .4em
+        &:first-child
+            font-size 2.7em
+            display block
+            margin-bottom .3em
+            float none
+
+        &:nth-child(2)
+            margin-right 50px
+
+        div
+            margin 0px auto
+            display inline-block
+        span
+            width 1.2em
+            height 1.2em
+            margin-top 10px
+            text-align center
+            margin 0px auto
+            display block
+            border-bottom 1px solid white
+
+    .other
+        padding 0
+        border-top 2px solid white
+        margin-top 1.5em
+        margin-bottom 15px
+        text-align center
+        li
+            padding 20px 25px 10px 20px
+            display inline-block
+            margin 0px auto
+            width auto
+            height 100%
+            text-align left
+            border-right 2px solid white
+
+            &:first-child
+                border-left 2px solid white
+
+            h5
+                font-family DIN
+                margin-top 0
+                font-size 30px
+
+            span
+                font-size 20px
+                border 0px
+                text-transform uppercase
+                text-align left
+                margin 0
+                width auto
+                height auto
+
+            div
+                margin 0
+                display block
+
+    h5
+        font-family Clarendon
+        margin .3em 0 0 0 
+
+    p
+        font-size .6em
+        margin-top -.4em
+        font-family DIN
+
+@import '_mq'
