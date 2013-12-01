@@ -23,6 +23,8 @@ a
     &:hover
         border-bottom 1px solid blue
 
+strong
+    font-weight 500
 #wrapper
     position relative
     max-width 1100px
@@ -236,24 +238,36 @@ header
         >div
             position absolute
             bottom 30px
+            box-sizing border-box
+
 
             &.left
-                left 50%
-                margin-left -450px
-            &.right
+                left 0
                 right 50%
-                margin-right -500px
+                text-align right
+                padding-right 100px
+
+            &.right
+                right 0
+                left 50%
+                text-align left
+                padding-left 100px
 
             a
-                margin 0 30px
+                margin 0 0px
                 color white
                 text-shadow 1px 1px 0 rgba(0,0,0,.5)
                 font-size 24px
                 font-family DIN
                 font-weight 100
+                padding 0 30px
+                padding-bottom 8px
                 text-transform uppercase
+                transition all .1s
                 &:hover
+                    color blue
                     border-bottom-color white
+                    border-bottom 4px solid blue
 
     h1
         text-indent -9999px
@@ -262,6 +276,7 @@ header
         margin-top 0
         line-height 143px
         height 90px !important 
+        font-size 102px
         a
             height 90px
             width 140px

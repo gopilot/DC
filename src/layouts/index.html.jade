@@ -7,7 +7,7 @@ html
         meta(name='author', content= "author of the site")
         <meta name="viewport" content="width=device-width, user-scalable=false, initial-scale=1, maximum-scale=1">
 
-        title=document.title
+        title=document.title + " | What can you build in a day?"
 
         link(rel='stylesheet', href='css/master.css')
     body
@@ -38,14 +38,16 @@ html
             .wrap
                 h2 Work together with engineers and designers from some of the top tech firms in the world, and turn your idea into a real app.
                 a(class='button white', href='#') Register
-                a(class='upper small button', href='#') Interested in sponsoring?
+                a(href='mailto:fly@gopilot.org', class='upper small button') Interested in sponsoring? >
 
         .section.dark#about
             .wrap
                 .content
                     h4 About
                     p
-                        | At #{document.title}, you will have 24 hours to create an app or product. We'll provide mentors to help you along the way, food to keep you fueled, free swag, and prizes for the winners. If you've ever thought something should exist, and never had the time or knowledge to make it, come to Pilot.
+                        | #{document.title} will provide students the opportunity to gain valuable feedback and contact with startups, mentors, and other motivated students while learning and competing. Our goal is to promote intensive collaboration on an innovative software project in an environment that is educational, fun, social, and competitive.
+
+                    p #{document.title} is a <a href="http://gopilot.org">Pilot</a>-run event. Pilot is a national organization committed to helping students gain the ability to turn their ideas in real apps and products.
 
         .section.dark.image.prizes(style="background-image: url(img/pic2.jpg)")
             .wrap
@@ -85,8 +87,27 @@ html
                 p
                     strong No! 
                     | If you like technology, design, or just hanging out with smart people, than this is for you.
-                h5 What are the prizes?
-                p First place takes
+
+                h5 Who can participate?
+                p Pilot events are for all high school students! Coding experience is not required. You aren't required to have ever attended a hackathon before: we will have tech talks to help you ramp up quickly. You can come with a team or come alone - there will be a place for you.
+
+                h5 What should I bring?
+                p Laptop and charger, extension cord, cellphone and charger, change of clothes, toothbrush, photo ID.
+
+                h5 How many people per team?
+                p You can have a maximum of <strong>four (4) students</strong> on your team.
+
+                h5 Can I start working before #{document.title}?
+                p <strong>No.</strong> Contestants are not allowed to work on their apps prior to the event. If you want to prepare for the hackathon, focus on gaining experience with and knowledge of the tool you hope to use to build your application.
+
+                h5 Do I need a team or idea to sign up?
+                p Nope! We will have sessions to help people find team members and/or form teams, as well as an idea generation workshop to help people think of ideas to work on for the hackathon. So you should sign up regardless!
+
+                h5 Do I have to be there the entire time?
+                p Once you arrive, for safety reasons, you will not be allowed to leave until the end of the hackathon. There will be spaces for you to sleep if you would like to.
+
+                h5 Will there be food?
+                p Yes. The only thing you need to worry about is building your app; let us take care of the rest. Breakfast, lunch, dinner, snacks, and plenty of drinks will be provided throughout the competition at no cost to participants. We will be providing vegetarian options as well. If you have a specific food allergy or other specific need, contact us and we'll try to find a way to make it work for you.
 
         //- add other scripts through require.js, not here
         script(data-main="js/main", src="js/require.js")
