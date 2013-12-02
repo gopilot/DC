@@ -25,6 +25,8 @@ a
 
 strong
     font-weight 500
+
+
 #wrapper
     position relative
     max-width 1100px
@@ -142,6 +144,9 @@ h4
     a
         color white
 
+    &.even
+        padding-bottom 20px
+
     &.white
         background white
         color #444
@@ -171,7 +176,12 @@ h4
     font-family DIN
     font-size 18px
 
+.center
+    margin 0px auto
+    text-align center
+
 .button
+    buttongrad=linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.1))
     background white
     font-family DIN
     font-weight 500
@@ -182,7 +192,7 @@ h4
     display inline-block
     margin-right 25px
     text-decoration none
-    background linear-gradient(#fff, #ddd)
+    background-image linear-gradient(#fff, #ddd)
     border 1px solid white
 
     &:hover
@@ -190,6 +200,11 @@ h4
 
     &.white
         color blue
+
+    &.blue
+        background blue buttongrad !important
+        border 1px solid blue
+        color white !important
 
     &.small
         padding 0
