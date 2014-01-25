@@ -144,6 +144,13 @@ h4
     a
         color white
 
+    &.blue
+        a
+            border-bottom 1px solid rgba(255,255,255,.4)
+
+            &:hover
+                border-bottom-color white
+
     &.even
         padding-bottom 20px
 
@@ -214,9 +221,10 @@ h4
         position relative
         bottom 3px
         border 0px
+        border-bottom 0px !important
 
         &:hover
-            border-bottom 1px solid white
+            border-bottom 1px solid white !important
 
 .wrap
     padding 0 50px

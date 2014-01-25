@@ -26,18 +26,22 @@ html
                         a(href="#about") About
                         a(href="#faq") FAQ
                     .right
-                        a(href="#") Register
-                        a(href="#") Sponsor
+                        a(href="#prereg") Register
+                        a(href="fly@gopilot.org") Sponsor
 
         .section.leader(style="background-image: url(img/dc.jpg)")
             .wrap
                 h1 You have 24 hours. <br>What will you build?
-                h3 Announcing the #{document.title} high school hackathon.<br> May 14-15, 2014 at some location in DC. 
+                //-h3 Announcing the #{document.title} high school hackathon.<br> May 14-15, 2014 at some location in DC. 
+                h3 Announcing PilotDC. Spring 2014. Location TBA.
 
         .section.blue
             .wrap
                 h2 Work together with engineers and designers from some of the top tech firms in the world, and turn your idea into a real app.
-                a(class='button white', href=document.url_register) Register
+                h3#prereg Registration coming soon. You can sign up to 
+                    a(href=document.url_register) be notified when registration opens >
+
+                br
                 a(href='mailto:fly@gopilot.org', class='upper small button') Interested in sponsoring? >
 
         .section.dark#about
@@ -49,36 +53,6 @@ html
 
                     p #{document.title} is a <a href="http://gopilot.org">Pilot</a>-run event. Pilot is a national organization committed to helping students gain the ability to turn their ideas in real apps and products.
 
-        .section.dark.image.prizes(style="background-image: url(img/pic2.jpg)")
-            .wrap
-                    h4 Prizes
-
-                    ol
-                        li
-                            div
-                                span 1<sup>st</sup>
-                                h5 iPad mini
-                                p 1/team member
-                        li
-                            div
-                                span 2<sup>nd</sup>
-                                h5 Apple TV
-                                p 1/team member
-                        li
-                            div
-                                span 3<sup>rd</sup>
-                                h5 Amazon Kindle 
-                                p 1/team member
-
-                    ul.other
-                        li
-                            div
-                                span Honorable mention
-                                h5 Gift cards
-                        li
-                            div
-                                span Random raffle
-                                h5 Swag (t-shirts, all kinds of great stuff)
 
         .section.white.faq#faq
             .wrap
@@ -109,10 +83,10 @@ html
                 h5 Will there be food?
                 p Yes. The only thing you need to worry about is building your app; let us take care of the rest. Breakfast, lunch, dinner, snacks, and plenty of drinks will be provided throughout the competition at no cost to participants. We will be providing vegetarian options as well. If you have a specific food allergy or other specific need, contact us and we'll try to find a way to make it work for you.
 
-        .section.dark.even
-            .wrap
-                div.center
-                    a(class='button white', href=document.url_register) Register
+        //-.section.dark.even
+            //-.wrap
+                //-div.center
+                    //-a(class='button white', href=document.url_register) Register
 
         //- add other scripts through require.js, not here
         script(data-main="js/main", src="js/require.js")
