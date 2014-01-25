@@ -10,7 +10,8 @@
     "docpad": "~6.56.0",
     "docpad-plugin-jade": "~2.6.1",
     "docpad-plugin-stylus": "~2.5.0",
-    "docpad-plugin-coffee": "~2.0.2"
+    "docpad-plugin-coffee": "~2.0.2",
+    "docpad-plugin-ghpages": "~2.4.3"
   },
   "main": "node_modules/docpad/bin/docpad-server",
   "scripts": {
