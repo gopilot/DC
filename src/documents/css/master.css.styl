@@ -32,6 +32,25 @@ strong
     max-width 1100px
     margin 0px auto
 
+.pull-left
+    display inline
+    float left
+
+.pull-right
+    display inline
+    float right
+
+.vertical-align
+    position absolute
+    top 0
+    bottom 0
+    margin auto
+
+    &.pull-right
+        right 0
+
+    &.pull-left
+        left 0
 
 .image-bg
     width 200%
@@ -209,9 +228,12 @@ h4
         color blue
 
     &.blue
-        background blue buttongrad !important
+        background blue buttongrad
         border 1px solid blue
-        color white !important
+        color white 
+
+        &:hover
+            border 1px solid white
 
     &.small
         padding 0
@@ -221,10 +243,18 @@ h4
         position relative
         bottom 3px
         border 0px
-        border-bottom 0px !important
+        border-bottom 0px
 
         &:hover
-            border-bottom 1px solid white !important
+            border-bottom 1px solid white
+
+    &.left
+        display inline
+        float left
+
+    &.right
+        display inline
+        float right
 
 .wrap
     padding 0 50px
@@ -238,6 +268,19 @@ h4
     h3
         line-height 1.4
 
+    a
+        color: blue
+
+    .subhead
+        overflow hidden
+        height 100%
+        line-height 100%
+        position relative
+        .button.pull-right
+            display block
+            position absolute
+            right 40px
+            height 29px
 #headwrap
     padding 0 25px
     padding-top 26px
@@ -308,6 +351,9 @@ header
             background-size contain
             &:hover
                 border 0px
+
+.register
+    line-height 100%
 
 .faq
     h5
