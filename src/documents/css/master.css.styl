@@ -379,9 +379,12 @@ header
     line-height 100%
     padding-bottom 20px
 
+<<<<<<< HEAD
 .sponsor-logos
     min-height 400px
 
+=======
+>>>>>>> 960586124dcf77cb4710776b3b7fb6db1a1e98c9
 .faq
     h5
         font-size 1.2em
@@ -392,14 +395,18 @@ header
 
 .schedule
     clearfix()
-    .wrap div
+    .wrap>div
         // 40% because giving a full half felt a little spaced out
         width 40%
         float left
+        &:last-child
+            width 60%
+
+
     time
         float left
         font-family: Clarendon
-        min-width 70px
+        width 90px
         margin-right 15px
         opacity .7 
     li

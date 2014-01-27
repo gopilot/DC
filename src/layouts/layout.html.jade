@@ -51,10 +51,12 @@ html
             .wrap
                 .content
                     h4 About
-                    p
-                        | #{document.title} will provide students the opportunity to gain valuable feedback and contact with startups, mentors, and other motivated students while learning and competing. Our goal is to promote intensive collaboration on an innovative software project in an environment that is educational, fun, social, and competitive.
+                    p #{document.title} is a <a href="http://gopilot.org">Pilot</a>-run event. Pilot is a national organization that holds hands-on educational events for high school students. Students form teams, brainstorm ideas, work together to bring one of those ideas to life with technology, and then demo and pitch the apps/websites they created for awards and prizes. We engage the local community by bringing in engineers and designers who mentor these students over the course of a day and help them bring their ideas to life. 
 
-                    p #{document.title} is a <a href="http://gopilot.org">Pilot</a>-run event. Pilot is a national organization committed to helping students gain the ability to turn their ideas in real apps and products.
+                    p Through this process students learn how to think creatively, pitch and demo their projects, and more technical skills like how to code and design. Most importantly, they learn how to learn.
+
+                    h4 What is a Pilot event?
+                    p A Pilot event is a day long creative competition where people who are always thinking up new ideas come together for a weekend and collaborate to build them. Entrepreneurs, designers, and developers work in teams to create apps for web or mobile platforms&mdash;in our case, these creators are high school students.
 
         //-.section.dark.image.prizes(style="background-image: url(img/pic2.jpg)")
         //-    .wrap
@@ -133,15 +135,12 @@ html
                 h5 Will there be food?
                 p Yes. The only thing you need to worry about is building your app; let us take care of the rest. Breakfast, lunch, dinner, snacks, and plenty of drinks will be provided throughout the competition at no cost to participants. We will be providing vegetarian options as well. If you have a specific food allergy or other specific need, contact us and we'll try to find a way to make it work for you.
 
+                h5 What should I wear?
+                p Clothing has a profound <a href="http://www.sciencedirect.com/science/article/pii/S0022103112000200">effect on the wearer's psychological processes</a>. If you look good, you end up doing better work. Wear your nicest jeans, favorite sweater, or cutest dress because we'll have a photographer at the event and during demos. We're going to leave this up to your interpretation, so don't worry about it too much, just dress to impress. This doesn't mean that you have to dress "business casual" (though you can), but we'd generally say avoid flip flops or sweatpants (during the daytime hours).
+ 
         .section.dark.even
             .wrap
                 div.center
                     a(class='button white', href=document.url_register) Register Now >
 
-        //- add other scripts through require.js, not here
-        script(data-main="js/main", src="js/require.js")
-
-        //- this must be included for live reload to work in developement
-        //- it will be automatically ignored when deployed
-        != livereload
-
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-43652846-2', 'gopilot.org');ga('send', 'pageview');</script>
