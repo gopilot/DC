@@ -32,25 +32,6 @@ strong
     max-width 1100px
     margin 0px auto
 
-.pull-left
-    display inline
-    float left
-
-.pull-right
-    display inline
-    float right
-
-.vertical-align
-    position absolute
-    top 0
-    bottom 0
-    margin auto
-
-    &.pull-right
-        right 0
-
-    &.pull-left
-        left 0
 
 .image-bg
     width 200%
@@ -195,7 +176,6 @@ h4
 .content
     max-width 900px
 
-
 .upper
     text-transform uppercase
 
@@ -203,9 +183,40 @@ h4
     font-family DIN
     font-size 18px
 
+.sans-serif
+    font-family DIN
+    font-weight 400
+
+.sans-serif-thin
+    font-family DIN
+    font-weight 200
+
+.serif
+    font-family Clarendon
+
 .center
     margin 0px auto
     text-align center
+
+.pull-left
+    display inline
+    float left
+
+.pull-right
+    display inline
+    float right
+
+.vertical-align
+    position absolute
+    top 0
+    bottom 0
+    margin auto
+
+    &.pull-right
+        right 0
+
+    &.pull-left
+        left 0
 
 .button
     buttongrad=linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.1))
@@ -231,7 +242,7 @@ h4
     &.blue
         background blue buttongrad
         border 1px solid blue
-        color white 
+        color white !important
 
         &:hover
             border 1px solid white
@@ -355,6 +366,8 @@ header
 
 .register
     line-height 100%
+    padding-bottom 20px
+
 
 .faq
     h5

@@ -26,7 +26,7 @@ html
                         a(href="#about") About
                         a(href="#faq") FAQ
                     .right
-                        a(href="#register") Register
+                        a(href=document.url_register) Register
                         a(href="mailto:fly@gopilot.org") Sponsor
 
         .section.leader(style="background-image: url(img/dc.jpg)")
@@ -34,19 +34,16 @@ html
                 h1 You have 24 hours. <br>What will you build?
                 .subhead
                     h3(class="pull-left") Announcing #{document.title}.<br> March 29-30, 2014 at <a href="https://www.google.com/maps/preview/place/5404+Wisconsin+Ave+%23700,+Chevy+Chase,+MD+20815/" target="_blank">Microsoft's DC Offices</a>
-                    //-a(href=document.url_register class="button blue vertical-align pull-right") Register Now >
-
-        //-.section.white.register#register
-        //-    .wrap
-        //-        h4.pull-left Early registration is open! 
-        //-        a(href=document.url_register class="button blue pull-right") Register Now >
+                    
+        .section.white.register#register
+            .wrap
+                h4.pull-left.serif Early registration is open! 
+                a(href=document.url_register class="button blue pull-right") Register Now >
 
         .section.blue
             .wrap
                 h2 Work together with engineers and designers from some of the top tech firms in the world, and turn your idea into a real app.
-                h3#prereg Registration coming soon. You can sign up to 
-                    a(href=document.url_register) be notified when registration opens >
-
+                a(href=document.url_register class="button white pull-left") Register Now
                 br
                 a(href='mailto:fly@gopilot.org', class='upper small button') Interested in sponsoring? >
 
