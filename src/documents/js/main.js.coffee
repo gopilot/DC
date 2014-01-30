@@ -6,10 +6,11 @@
 # for more info on require config, see http://requirejs.org/docs/api.html#config
 require.config
     paths:
-        #jquery: '//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min'
-        jquery: 'jquery-191'
+        jquery: 'jquery'
+        scrollTo: 'scrollTo'
+        localScroll: 'localScroll'
 
-require ['jquery'], ($) ->
-    console.log 'jquery loaded (via assets/js/main.coffee)'
-    #$(".borderwrap").height($(document).height()-100)
+require ['jquery', 'scrollTo', 'localScroll'], ($, scrollTo, localScroll) ->
+    #console.log 'scripts loaded (via assets/js/main.coffee)'
+    $.localScroll()
 
