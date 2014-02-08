@@ -179,8 +179,9 @@ h1 + h3
     
     i
         display inline-block
-        text-align left
+        text-align center
         font-size 1em
+        width 30px
         padding 10px
         line-height 100%
         border-right 2px solid white
@@ -225,8 +226,51 @@ h1 + h3
         background-color #0b2968
 
 @media(max-width: 900px)
+    .wrap
+        padding-left 40px
+        padding-right 40px
+
+    .button
+        margin 20px
+
+    li
+        margin-left 4%
+
+@media(max-width: 640px)
+    #eventButton
+        width 90%
+
+
+@media(max-width: 430px)
+    .wrap
+        padding-left 20px
+        padding-right 20px
+
+    #eventButton
+        width 100%
+        padding 15px
+        margin-left -10%
+
+        span
+            font-size 26px
+            padding-right 5px
+
+    #share
+        margin-top 15px
+
     .button
         margin-top 25px
         margin-bottom 25px
-    li
-        margin-left 4%
+        margin-left -20px
+        margin-right -20px
+        width 100%
+
+    #actions
+        margin-left 20px
+
+        li
+            margin-left 5px
+
+
+
+
