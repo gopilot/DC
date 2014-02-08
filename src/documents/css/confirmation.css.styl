@@ -157,9 +157,12 @@ h1 + h3
 #actions
     list-style-type decimal
     font-size 30px
-    margin-left 20px
     margin-top 50px
     font-weight 400
+
+    #list-title
+        margin-left 20px
+
     li
         font-weight 200
         margin-left 10%
@@ -207,6 +210,8 @@ h1 + h3
 #eventButton
     background-color #78BAE2
     width 400px
+    margin-left 0
+    margin-right 0
 
     &:hover
         background-color #588AB2
@@ -240,16 +245,14 @@ h1 + h3
         line-height 65px
         margin-top 20px
 
-@media(max-width: 640px)
-    #eventButton
-        width 90%
-
-
-@media(max-width: 430px)
+@media(max-width: 525px)
     .wrap
         padding-left 20px
         padding-right 20px
+    #eventButton
+        width 90%
 
+@media(max-width: 430px)
     #eventButton
         width 100%
         padding 15px
