@@ -118,7 +118,11 @@ html
                     .wrap
                         .content
                         h4 Getting There
-                        iframe(width='86%' height='500px' frameBorder='0' src='http://a.tiles.mapbox.com/v3/pandringa.h7565j67/mm/zoompan,zoomwheel,geocoder,share.html' id='eventMap')
+                        div.sans-serif-thin#eventAddress
+                            span.sans-serif PilotDC <br/>
+                            span Microsoft's DC Offices <br/> 5404 Wisconsin Avenue <br/> Chevy Chase, MD 20815
+                            
+                        iframe(height="500" frameBorder='0' src='http://a.tiles.mapbox.com/v3/pandringa.h7565j67/mm/zoompan,geocoder,share.html' id='eventMap')
 
 
         .section.white.faq#faq
