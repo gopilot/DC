@@ -43,13 +43,16 @@ html
         .section.white.register#register
             .wrap
                 h4.pull-left.serif Registration is now open! 
-                a(href=document.url_register class="button blue pull-right") Register Now >
+                div.pull-right
+                    a(href=document.url_register class="button blue register-button") Register Now >
+                    span.register-link
+                        a(href=document.url_mentor_register) Register as a Mentor
 
         .section.blue
             .wrap
                 h2 Work together with engineers and designers from some of the top tech firms in the world, and turn your idea into a real app.
                 a(href=document.url_register class="button white pull-left") Register Now
-                br
+                <br/>
                 a(href='mailto:fly@gopilot.org?subject=Sponsoring%20'+document.title, class='upper small button') Interested in sponsoring? >
 
         .section.dark#about
