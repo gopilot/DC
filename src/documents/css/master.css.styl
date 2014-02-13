@@ -464,15 +464,29 @@ header
 #judges
     .wrap
         max-width 1400px
+        padding 0px 20px
+
     .judge-wrap
         display block
         margin auto
         text-align center
-        
+
+        &:first-child
+            margin-left 0px
+
+        &:last-child
+            margin-right 0px
+
         .judge-cell
             display inline-block
             width 230px
-            margin 10px
+            margin 8px
+
+            &:first-of-type
+                margin-left 0px
+
+            &:last-of-type
+                margin-right 0px
 
             .judge-profile
                 display block

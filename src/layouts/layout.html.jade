@@ -125,7 +125,7 @@ html
                     each person in document.judges
                         div.judge-cell
                             div.judge-profile(style="background-image: url("+person.image+");")
-                                span.judge-bio= person.bio
+                                span.judge-bio !{person.bio}
                             span.judge-name= person.name                    
 
         .section.dark#getting-there
