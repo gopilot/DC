@@ -117,6 +117,17 @@ html
                                 li
                                     time=item.time
                                     p=item.name
+
+        .section.white#judges
+            .wrap
+                h4.center Judges
+                div.judge-wrap
+                    each person in document.judges
+                        div.judge-cell
+                            div.judge-profile(style="background-image: url("+person.image+");")
+                                span.judge-bio= person.bio
+                            span.judge-name= person.name                    
+
         .section.dark#getting-there
                     .wrap
                         .content

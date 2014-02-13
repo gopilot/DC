@@ -461,6 +461,65 @@ header
     float: left
     min-width 230px
 
+#judges
+    .wrap
+        max-width 1400px
+    .judge-wrap
+        display block
+        margin auto
+        text-align center
+        
+        .judge-cell
+            display inline-block
+            width 230px
+            margin 10px
+
+            .judge-profile
+                display block
+                width 230px
+                height 240px
+                transition background-position 0.75s
+                overflow hidden
+
+                .judge-bio
+                    width 210px
+                    height 220px
+                    padding 10px
+                    position relative
+                    display block
+                    text-align center
+                    font-size 17px
+                    line-height 21px
+                    color white
+                    left -230px
+                    transition left 0.75s
+                    overflow hidden
+ 
+                &:hover
+                    background-position-x 230px
+
+                &.hover //So js can trigger it on mobile by adding the hover class
+                    background-position-x 230px
+
+                &:hover .judge-bio
+                    left 0px
+
+                &.hover .judge-bio //So js can trigger it on mobile by adding the hover class
+                    left 0px
+
+            .judge-name
+                display block
+                margin-top 3px
+                width 100%
+                text-align center
+            #dan-berger
+                background-image url(/img/judges/dan_berger.jpg)
+
+            #brittany-heyd
+                background-image url(/img/judges/brittany_heyd.jpg)
+
+        
+
 #eventMap
     margin-left 5%
     margin-top 25px
