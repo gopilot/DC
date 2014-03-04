@@ -431,20 +431,43 @@ header
 
 .sponsor-logo
     display block
-    width 500px
     max-width 100%
     background-size 100%
     background-repeat no-repeat
-    height 200px
     margin-bottom 50px
     transition: background-image 0.5s;
     -webkit-transition: background-image 0.5s; /* Safari */
+    margin: 25px
+
+    &.half
+        display inline-block
+
+    &.center
+        display block
+        margin auto
 
 #microsoft
     background-image url(/img/sponsors/microsoft-black.png)
-    height 184px
+    height 250px
+    width 679px
     &:hover
         background-image url(/img/sponsors/microsoft-color.png)
+        border-bottom none
+
+#dc-tech
+    background-image url(/img/sponsors/dctech-black.png)
+    width 225px
+    height 150px
+    &:hover
+        background-image url(/img/sponsors/dctech-color.png)
+        border-bottom none
+
+#modev
+    background-image url(/img/sponsors/modev-black.png)
+    height 120px
+    width 368px
+    &:hover
+        background-image url(/img/sponsors/modev-color.png)
         border-bottom none
 
 
