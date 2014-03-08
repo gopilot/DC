@@ -11,7 +11,8 @@
     "docpad-plugin-jade": "~2.6.1",
     "docpad-plugin-stylus": "~2.5.0",
     "docpad-plugin-coffee": "~2.0.2",
-    "docpad-plugin-ghpages": "~2.4.3"
+    "docpad-plugin-ghpages": "~2.4.3",
+    "docpad-plugin-cleanurls": "~2.7.0"
   },
   "main": "node_modules/docpad/bin/docpad-server",
   "scripts": {
