@@ -1,0 +1,71 @@
+!!!
+html
+	head
+		meta(charset='utf8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge, chrome=1')
+		meta(name='description', content='The Pilot Store')
+		meta(property='og:title', content="PilotDC - What can you build in a day?")
+		meta(property="og:url", content="http://dc.gopilot.org/store/")
+		meta(property="og:site_name", content="PilotDC")
+		meta(property="og:type", content="event")
+		meta(property="og:image", content="http://dc.gopilot.org/img/logo_fb.png")
+		meta(name='author', content= "Pilot")
+		meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1")
+
+		title="Predorder PilotDC T-Shirts"
+
+		link(rel='stylesheet', href='/css/font-awesome/css/font-awesome.css')
+		link(rel='stylesheet', href='/css/bootstrap/css/bootstrap.css')
+		link(rel='stylesheet', href='/css/store.css')
+	body
+		section.blue#header
+			.wrap
+				h4 Preorder T-Shirts
+		section.light#body
+			.wrap
+				.container
+					.col-sm-4
+						.item#ladies
+							div.check.fa.fa-check-circle
+							div.title Ladies' Shirt
+							img(class="img" src="/img/shirts/ladies.jpeg" alt="Ladies' Shirt")
+							div.description This classic fitted T is our most popular style for Women.
+							div.click (Click to Select)
+				
+					.col-sm-4
+						.item#hoodie
+							div.check.fa.fa-check-circle
+							div.title Unisex Hoodie
+							img(class="img" src="/img/shirts/hoodie.jpeg" alt="Unisex Hoodie")
+							div.description Our take on the classic drawstring sport hoody.
+							div.click (Click to Select)
+
+					.col-sm-4
+						.item#unisex
+							div.check.fa.fa-check-circle
+							div.title Unisex Shirt
+							img(class="img" src="/img/shirts/unisex.jpeg" alt="Unisex Shirt")
+							div.description The softest, smoothest, best-looking T-shirt available.
+							div.click (Click to Select)
+				div#button-container
+					div.button.above.visible#js-checkoutButton
+						i.fa.fa-shopping-cart
+						span Checkout - 
+						span#price $00.00
+					div.slide-container
+						div.underneath#js-slideForm
+							div.close.fa.fa-times#js-closeForm
+							div.inputs.form-inline
+									input(type="text" class="form-control" placeholder="Name")
+									input(type="email" class="form-control" placeholder="Email")
+							div.button.double
+								div.half-button.left#left-button 
+									i.fa.fa-credit-card
+									span Pay online
+								div.half-button.right#right-button 
+									i.fa.fa-money
+									span Pay at event
+
+					
+		<script src="//checkout.stripe.com/checkout.js"></script>
+		<script data-main="/js/store.js" src="/js/require.js"></script>
