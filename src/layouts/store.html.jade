@@ -56,8 +56,14 @@ html
 						div.underneath#js-slideForm
 							div.close.fa.fa-times#js-closeForm
 							div.inputs.form-inline
-									input(type="text" class="form-control" placeholder="Name")
-									input(type="email" class="form-control" placeholder="Email")
+								form#checkoutForm
+									input(type="text" name="name" class="form-control" placeholder="Name" id="nameField")
+									input(type="email" name="email" class="form-control" placeholder="Email" id="emailField")
+									input(type="hidden" name="order" id="orderField" value="")
+									input(type="hidden" name="total" id="totalField" value="0")
+									input(type="hidden" name="paid" id="paidField" value="false")
+									input(type="hidden" name="stripe" id="stripeField" value="")
+									input(type="submit" name="submit" id="js-submitForm" style="display: none;")
 							div.button.double
 								div.half-button.left#left-button 
 									i.fa.fa-credit-card
@@ -68,4 +74,5 @@ html
 
 					
 		<script src="//checkout.stripe.com/checkout.js"></script>
+		<script src="//s3.amazonaws.com/fireform/fireform.min.js"></script>
 		<script data-main="/js/store.js" src="/js/require.js"></script>
