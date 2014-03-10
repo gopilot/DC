@@ -16,6 +16,7 @@ html
 
 		link(rel='stylesheet', href='/css/font-awesome/css/font-awesome.css')
 		link(rel='stylesheet', href='/css/bootstrap/css/bootstrap.css')
+		link(rel='stylesheet', href='/css/bootstrap-select.css')
 		link(rel='stylesheet', href='/css/store.css')
 	body
 		section.blue#header
@@ -28,25 +29,47 @@ html
 						.item#ladies
 							div.check.fa.fa-check-circle
 							div.title Ladies' Shirt
+							div.price $15.00
 							img(class="img" src="/img/shirts/ladies.jpeg" alt="Ladies' Shirt")
 							div.description This classic fitted T is our most popular style for Women.
 							div.click (Click to Select)
+
+						select(class='selectpicker' title='Choose a size...')
+							option Small
+							option Medium
+							option Large
+							option Extra Large
 				
 					.col-sm-4
 						.item#hoodie
 							div.check.fa.fa-check-circle
 							div.title Unisex Hoodie
+							div.price $20.00
 							img(class="img" src="/img/shirts/hoodie.jpeg" alt="Unisex Hoodie")
 							div.description Our take on the classic drawstring sport hoody.
 							div.click (Click to Select)
+
+						select(class='selectpicker' title='Choose a size...')
+							option Small
+							option Medium
+							option Large
+							option Extra Large
 
 					.col-sm-4
 						.item#unisex
 							div.check.fa.fa-check-circle
 							div.title Unisex Shirt
+							div.price $15.00
 							img(class="img" src="/img/shirts/unisex.jpeg" alt="Unisex Shirt")
 							div.description The softest, smoothest, best-looking T-shirt available.
 							div.click (Click to Select)
+
+						select(class='selectpicker' title='Choose a size...')
+							option Small
+							option Medium
+							option Large
+							option Extra Large
+							
 				div#button-container
 					div.button.above.visible#js-checkoutButton
 						i.fa.fa-shopping-cart
@@ -71,8 +94,7 @@ html
 								div.half-button.right#right-button 
 									i.fa.fa-money
 									span Pay at event
-
-					
+		
 		<script src="//checkout.stripe.com/checkout.js"></script>
 		<script src="//s3.amazonaws.com/fireform/fireform.min.js"></script>
 		<script data-main="/js/store.js" src="/js/require.js"></script>

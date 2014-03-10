@@ -6,7 +6,7 @@
 # for more info on require config, see http://requirejs.org/docs/api.html#config
 require.config(
 	paths:
-		jquery: 'jquery'
+		'jquery': 'jquery'
 )
 
 require ['jquery'], ($) ->
@@ -34,6 +34,16 @@ require ['jquery'], ($) ->
 			cart.push "Unisex T-Shirt"
 		return cart.join ", "
 
+	generateSizes = () ->
+		sizes = []
+		if toggled.ladies
+			sizes.push $('#ladies').next().val()+" Ladies' T-Shirt"
+		if toggled.hoodie
+			sizes.push $('#hoodie').next().val()+" Hoodie"
+		if toggled.unisex
+			sizes.push $('#unisex').next().val()+" Unisex T-Shirt"
+		return sizes.join ", "
+
 	handler = StripeCheckout.configure(
 		key: "pk_test_bVNI8WnLVJlwNySLMliWPRjW"
 		image: "/img/logo_square.png"
@@ -48,7 +58,7 @@ require ['jquery'], ($) ->
 				email: $('#emailField').val()
 			}, (err, result) ->
 				if result == 'success'
-					$('#orderField').val generateDescription()
+					$('#orderField').val generateSizes()
 					$('#totalField').val total
 					$('#paidField').val 'true'
 					$('#stripeField').val token.id
@@ -70,17 +80,18 @@ require ['jquery'], ($) ->
 			setTimeout () ->
 				checkout.html(text);
 				checkout.css('background', color)
-			, 3000
+			, 2000
 	}
-
 	$('.item').click (event) ->
 		$(this).toggleClass 'selected'
 		$(this).children('.check').toggleClass 'visible'
+		$(this).next().toggleClass 'visible'
 		itemName = $(this).attr('id')
 		if toggled[itemName]
 			total -= price[itemName]
 		else
 			total += price[itemName]
+		
 		toggled[itemName] = !toggled[itemName]
 		$('#price').html "$"+total.toFixed(2)
 		return false
@@ -98,7 +109,7 @@ require ['jquery'], ($) ->
 	$('#right-button').click (event) ->
 		if !(toggled.ladies || toggled.unisex || toggled.hoodie)
 			return alert("You need to pick at least one item!")
-		$('#orderField').val generateDescription()
+		$('#orderField').val generateSizes()
 		$('#totalField').val total
 		$('#js-submitForm').click()
 		return false;
