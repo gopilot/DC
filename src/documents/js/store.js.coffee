@@ -11,7 +11,10 @@ require.config(
 
 require ['jquery'], ($) ->
 	#console.log 'scripts loaded (via assets/js/main.coffee)'
+	# paymentsServer = "http://localhost:5000/"
 	paymentsServer = "http://payments.gopilot.org/"
+	fireformPage = "http://fireform.org/list/152/DC_Shirts"
+	
 
 	price =
 		ladies: 15
@@ -61,21 +64,23 @@ require ['jquery'], ($) ->
 				unisex: toggled.unisex.toString()
 				hoodie: toggled.hoodie.toString()
 				total: total
+				livePayments: "true"
 				email: $('#emailField').val()
-			}, (err, result) ->
-				if result == 'success'
+			}, (charge, status) ->
+				console.log status
+				if status == "success"
 					$('#orderField').val generateSizes()
 					$('#totalField').val total
 					$('#paidField').val 'true'
-					$('#stripeField').val token.id
+					$('#stripeField').val charge
 					$('#js-submitForm').click();
 				else
-					console.error("Error!", err, result)
-					alert("Error submitting payment: "+err+", "+result)
+					console.error "Error!", charge, status 
+					alert "Error submitting payment: "+charge 
 			)
 	)
 
-	new Fireform '#checkoutForm', 'http://fireform.org/list/152/DC_Shirts', {
+	new Fireform '#checkoutForm', fireformPage, {
 		callback: (err, val) ->
 			checkout = $('#js-checkoutButton')
 			text = checkout.html()
