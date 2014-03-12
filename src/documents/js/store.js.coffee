@@ -11,6 +11,8 @@ require.config(
 
 require ['jquery'], ($) ->
 	#console.log 'scripts loaded (via assets/js/main.coffee)'
+	paymentsServer = "http://payments.gopilot.org/"
+
 	price =
 		ladies: 15
 		unisex: 15
@@ -44,12 +46,16 @@ require ['jquery'], ($) ->
 			sizes.push $('#unisex').next().val()+" Unisex T-Shirt"
 		return sizes.join ", "
 
+	
+	stripeKey = "pk_live_BXRjo7MBwBvPSNM1338ZQVj3"
+	stripeKey = "pk_test_bVNI8WnLVJlwNySLMliWPRjW" if window.location.hostname == 'localhost'
+	
 	handler = StripeCheckout.configure(
-		key: "pk_test_bVNI8WnLVJlwNySLMliWPRjW"
+		key: stripeKey
 		image: "/img/logo_square.png"
 		token: (token, args) ->
 			console.log("stripe 1", token)
-			$.post('//localhost:3000/', {
+			$.post(paymentsServer, {
 				stripeToken: token.id
 				ladies: toggled.ladies.toString()
 				unisex: toggled.unisex.toString()
