@@ -207,6 +207,14 @@ h1 + h3
     width auto
     text-align center
 
+#waiverButton
+    background-color #535353
+    width 400px
+
+    &:hover
+        background-color #333
+
+
 #eventButton
     background-color #78BAE2
     width 400px
@@ -230,6 +238,20 @@ h1 + h3
     &:hover
         background-color #0b2968
 
+#facebookLike
+    background-color #3b5998
+    width 250px
+
+    &:hover
+        background-color #0b2968
+
+#twitterFollow
+    background-color #4099ff
+    width 250px
+
+    &:hover
+        background-color #1068df
+
 @media(max-width: 900px)
     .wrap
         padding-left 40px
@@ -249,11 +271,11 @@ h1 + h3
     .wrap
         padding-left 20px
         padding-right 20px
-    #eventButton
+    .button-large
         width 90%
 
 @media(max-width: 430px)
-    #eventButton
+    .button-large
         width 100%
         padding 15px
         margin-left -10%
@@ -262,7 +284,7 @@ h1 + h3
             font-size 23px
             padding-right 5px
 
-    #share
+    .button-small
         margin-top 15px
 
     .button

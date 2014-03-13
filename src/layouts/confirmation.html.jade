@@ -36,16 +36,29 @@ html(style="width: 100%; height: 100%;")
             h4.center.sans-serif Look for an email in the next few weeks with more details
             ol#actions 
                 span.serif#list-title What now?
-                li Join the Facebook event to recieve updates!
+                li Get your waivers signed, and email them to dc@gopilot.org!
                 div.button-container
-                    a(href=document.facebook_event class="button" id="eventButton" target="_blank")
-                        i(class="fa fa-calendar")
-                        span(class="button-text") Facebook Event >
-                li Invite your friends!
+                    a(href="/waiver.pdf" class="button button-large" id="waiverButton" target="_blank")
+                        i.fa.fa-print
+                        span.button-text Print waivers >
+                li Join the Facebook event to see who else is going!
                 div.button-container
-                    a(href="https://twitter.com/share?url="+encodeURIComponent(document.share_url)+"&text="+encodeURIComponent(document.tweet) class="button" id="tweet" target="_blank")
-                        i(class="fa fa-twitter")
-                        span(class="button-text") Tweet             
-                    a(href="https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(document.share_url) class="button" id="share" target="_blank")
-                        i(class="fa fa-facebook")
-                        span(class="button-text") Share
+                    a(href=document.facebook_event class="button button-large" id="eventButton" target="_blank")
+                        i.fa.fa-calendar
+                        span.button-text Facebook Event >
+                li Follow us to get updates!
+                div.button-container
+                    a(href="https://facebook.com/grabtheyoke" class="button button-small" id="facebookLike" target="_blank")
+                        i.fa.fa-thumbs-up
+                        span.button-text Pilot
+                    a(href="https://twitter.com/grabtheyoke" class="button button-small" id="twitterFollow" target="_blank")
+                        i.fa.fa-twitter
+                        span.button-text @GrabTheYoke
+                //- li Invite your friends!
+                //- div.button-container
+                //-     a(href="https://twitter.com/share?url="+encodeURIComponent(document.share_url)+"&text="+encodeURIComponent(document.tweet) class="button button-small" id="tweet" target="_blank")
+                //-         i(class="fa fa-twitter")
+                //-         span(class="button-text") Tweet             
+                //-     a(href="https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(document.share_url) class="button button-small" id="share" target="_blank")
+                //-         i.fa.fa-facebook
+                //-         span.button-text Share
