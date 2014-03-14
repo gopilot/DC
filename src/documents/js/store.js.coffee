@@ -1,0 +1,142 @@
+#= require "_helper"
+
+# requirejs makes life a lot easier when dealing with more than one
+# javascript file and any sort of dependencies, and loads faster.
+
+# for more info on require config, see http://requirejs.org/docs/api.html#config
+require.config(
+	paths:
+		'jquery': 'jquery'
+)
+
+require ['jquery'], ($) ->
+	#console.log 'scripts loaded (via assets/js/main.coffee)'
+	# paymentsServer = "http://localhost:5000/"
+	paymentsServer = "http://payments.gopilot.org/"
+	fireformPage = "http://fireform.org/list/152/DC_Shirts"
+	
+
+	price =
+		ladies: 15
+		unisex: 15
+		hoodie: 20
+
+	total = 0
+
+	toggled = 
+		ladies: false
+		unisex: false
+		hoodie: false
+		button: false
+
+	generateDescription = () ->
+		cart = []
+		if toggled.ladies
+			cart.push "Ladies' T-Shirt"
+		if toggled.hoodie
+			cart.push "Unisex Hoodie"
+		if toggled.unisex
+			cart.push "Unisex T-Shirt"
+		return cart.join ", "
+
+	generateSizes = () ->
+		sizes = []
+		if toggled.ladies
+			sizes.push $('#ladies').next().val()+" Ladies' T-Shirt"
+		if toggled.hoodie
+			sizes.push $('#hoodie').next().val()+" Hoodie"
+		if toggled.unisex
+			sizes.push $('#unisex').next().val()+" Unisex T-Shirt"
+		return sizes.join ", "
+
+	
+	stripeKey = "pk_live_BXRjo7MBwBvPSNM1338ZQVj3"
+	stripeKey = "pk_test_bVNI8WnLVJlwNySLMliWPRjW" if window.location.hostname == 'localhost'
+	
+	handler = StripeCheckout.configure(
+		key: stripeKey
+		image: "/img/logo_square.png"
+		token: (token, args) ->
+			console.log("stripe 1", token)
+			$.post(paymentsServer, {
+				stripeToken: token.id
+				ladies: toggled.ladies.toString()
+				unisex: toggled.unisex.toString()
+				hoodie: toggled.hoodie.toString()
+				total: total
+				livePayments: "true"
+				email: $('#emailField').val()
+			}, (charge, status) ->
+				console.log status
+				if status == "success"
+					$('#orderField').val generateSizes()
+					$('#totalField').val total
+					$('#paidField').val 'true'
+					$('#stripeField').val charge
+					$('#js-submitForm').click();
+				else
+					console.error "Error!", charge, status 
+					alert "Error submitting payment: "+charge 
+			)
+	)
+
+	new Fireform '#checkoutForm', fireformPage, {
+		callback: (err, val) ->
+			checkout = $('#js-checkoutButton')
+			text = checkout.html()
+			color = checkout.css 'background'
+			checkout.html("<i class='fa fa-check'></i> Order Sent!");
+			checkout.css('background', '#7fc028')
+			$('#js-closeForm').click();
+			setTimeout () ->
+				checkout.html(text);
+				checkout.css('background', color)
+			, 2000
+	}
+	$('.item').click (event) ->
+		$(this).toggleClass 'selected'
+		$(this).children('.check').toggleClass 'visible'
+		$(this).next().toggleClass 'visible'
+		itemName = $(this).attr('id')
+		if toggled[itemName]
+			total -= price[itemName]
+		else
+			total += price[itemName]
+		
+		toggled[itemName] = !toggled[itemName]
+		$('#price').html "$"+total.toFixed(2)
+		return false
+
+	$('#left-button').click (event) ->
+		if !(toggled.ladies || toggled.unisex || toggled.hoodie)
+			return alert("You need to pick at least one item!")
+		handler.open(
+			name: "PilotDC"
+			description: generateDescription()
+			amount: total*100
+			email: $('#emailField').val()
+		);
+
+	$('#right-button').click (event) ->
+		if !(toggled.ladies || toggled.unisex || toggled.hoodie)
+			return alert("You need to pick at least one item!")
+		$('#orderField').val generateSizes()
+		$('#totalField').val total
+		$('#js-submitForm').click()
+		return false;
+
+
+	$('#js-closeForm').click (event) ->
+		if toggled['button']
+			toggled['button'] = false
+			$('#js-checkoutButton').toggleClass 'visible'
+			$('#js-slideForm').toggleClass 'visible'
+			return false
+		return true
+
+	$('#button-container').click (event) ->
+		if !toggled['button']
+			$('#js-checkoutButton').toggleClass 'visible'
+			$('#js-slideForm').toggleClass 'visible'
+			toggled['button'] = true
+		return false

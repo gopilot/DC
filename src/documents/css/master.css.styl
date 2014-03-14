@@ -1,3 +1,4 @@
+
 @import 'nib'
 @import '_settings'
 @import '_fonts'
@@ -19,6 +20,7 @@ body
 
 a
     text-decoration none
+    cursor pointer
 
     &:hover
         border-bottom 1px solid blue
@@ -251,6 +253,7 @@ h4
     text-decoration none
     background-image linear-gradient(#fff, #ddd)
     border 1px solid white
+    cursor pointer
 
     &:hover
         border 1px solid #fff
@@ -387,6 +390,37 @@ header
 .register
     line-height 100%
     padding-bottom 20px
+    text-align center
+    margin-right 25px
+
+    .wrap
+        height 100%
+        min-height 94px
+        overflow hidden
+
+    h4
+        height 100%
+        line-height 100%
+        margin-top 22px
+        font-size 45px
+    
+    .register-link
+        clear both
+        float right
+        width 100%
+        margin-top 5px
+
+        a
+            border-bottom 2px dotted blue
+
+            &:hover
+                border-bottom 2px solid blue
+
+
+    a.register-button
+        clear both
+        float right
+        margin-right 0px
 
 .sponsors
     .sponsor-logos
@@ -397,20 +431,43 @@ header
 
 .sponsor-logo
     display block
-    width 500px
     max-width 100%
     background-size 100%
     background-repeat no-repeat
-    height 200px
     margin-bottom 50px
     transition: background-image 0.5s;
     -webkit-transition: background-image 0.5s; /* Safari */
+    margin: 25px
+
+    &.half
+        display inline-block
+
+    &.center
+        display block
+        margin auto
 
 #microsoft
     background-image url(/img/sponsors/microsoft-black.png)
-    height 184px
+    height 250px
+    width 679px
     &:hover
         background-image url(/img/sponsors/microsoft-color.png)
+        border-bottom none
+
+#dc-tech
+    background-image url(/img/sponsors/dctech-black.png)
+    width 225px
+    height 150px
+    &:hover
+        background-image url(/img/sponsors/dctech-color.png)
+        border-bottom none
+
+#modev
+    background-image url(/img/sponsors/modev-black.png)
+    height 120px
+    width 368px
+    &:hover
+        background-image url(/img/sponsors/modev-color.png)
         border-bottom none
 
 
@@ -419,11 +476,91 @@ header
 .sponsor-email
     margin-bottom 30px
 
+#eventAddress
+    width: 25%
+    margin-top 25px
+    float: left
+    min-width 230px
+
+#judges
+    .wrap
+        max-width 1400px
+        padding 0px 20px
+
+    .judge-wrap
+        display block
+        margin auto
+        text-align center
+
+        &:first-child
+            margin-left 0px
+
+        &:last-child
+            margin-right 0px
+
+        .judge-cell
+            display inline-block
+            width 230px
+            margin 8px
+
+            &:first-of-type
+                margin-left 0px
+
+            &:last-of-type
+                margin-right 0px
+
+            .judge-profile
+                display block
+                width 230px
+                height 240px
+                transition background-position 0.75s
+                overflow hidden
+
+                .judge-bio
+                    width 210px
+                    height 220px
+                    padding 10px
+                    position relative
+                    display block
+                    text-align center
+                    font-size 17px
+                    line-height 21px
+                    color white
+                    left -230px
+                    transition left 0.75s
+                    overflow hidden
+ 
+                &:hover
+                    background-position-x 230px
+
+                &.hover //So js can trigger it on mobile by adding the hover class
+                    background-position-x 230px
+
+                &:hover .judge-bio
+                    left 0px
+
+                &.hover .judge-bio //So js can trigger it on mobile by adding the hover class
+                    left 0px
+
+            .judge-name
+                display block
+                margin-top 3px
+                width 100%
+                text-align center
+            #dan-berger
+                background-image url(/img/judges/dan_berger.jpg)
+
+            #brittany-heyd
+                background-image url(/img/judges/brittany_heyd.jpg)
+
+        
+
 #eventMap
-    width 86%
-    margin-left 7%
-    margin-right 7%
+    margin-left 5%
+    margin-top 25px
+    width 65%
     height 500px
+    overflow hidden
 
 .faq
     h5

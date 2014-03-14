@@ -13,4 +13,5 @@ require.config
 require ['jquery', 'scrollTo', 'localScroll'], ($, scrollTo, localScroll) ->
     #console.log 'scripts loaded (via assets/js/main.coffee)'
     $.localScroll()
-
+    $('.judge-profile').bind 'touchstart', () ->
+    	$(this).toggleClass 'hover'

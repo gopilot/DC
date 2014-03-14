@@ -3,7 +3,7 @@ html
     head
         meta(charset='utf8')
         meta(http-equiv='X-UA-Compatible', content='IE=edge, chrome=1')
-        meta(name='description', content='Work with your friends to bring your ideas to life.')
+        meta(name='description', content='Work with your friends to turn your idea into a real app')
         meta(property='og:title', content="PilotDC - What can you build in a day?")
         meta(property="og:url", content="http://dc.gopilot.org/")
         meta(property="og:site_name", content="PilotDC")
@@ -44,14 +44,17 @@ html
         .section.white.register#register
             .wrap
                 h4.pull-left.serif Registration is now open! 
-                a(href=document.url_register class="button blue pull-right") Register Now >
+                div.pull-right
+                    a(href=document.url_register class="button blue register-button") Register Now >
+                    span.register-link
+                        a(href=document.url_mentor_register) Register as a Mentor
 
         .section.blue
             .wrap
                 h2 Work together with engineers and designers from some of the top tech firms in the world, and turn your idea into a real app.
                 a(href=document.url_register class="button white pull-left") Register Now
-                br
-                a(href='mailto:fly@gopilot.org?subject=Sponsoring%20'+document.title, class='upper small button') Interested in sponsoring? >
+                <br/>
+                a(href='http://dc.gopilot.org/sponsorship.pdf', class='upper small button') Interested in sponsoring? >
 
         .section.dark#about
             .wrap
@@ -100,9 +103,14 @@ html
                
                 div.sponsor-logos
                     a(href="http://microsoft.com" class="sponsor-logo center" id="microsoft")
-                    div Stay tuned for more sponsor announcements!
+                    
+                    h4 Media Sponsors
+                    a(href="http://gomodev.com" class="sponsor-logo half" id="modev")
+                    a(href="http://www.meetup.com/DC-Tech-Meetup/" class="sponsor-logo half" id="dc-tech")
+                    <br/>
+                    div(style="clear: both") Stay tuned for more sponsor announcements!
 
-                a(href='mailto:fly@gopilot.org?subject=Sponsoring%20'+document.title, class='upper center sponsor-email') Want to see your company here? >
+                a(href='/sponsorship.pdf', class='upper center sponsor-email') Want to see your company here? >
 
         .section.dark.image.schedule(style="background-image: url(img/pic2.jpg)")#schedule
             .wrap
@@ -115,11 +123,26 @@ html
                                 li
                                     time=item.time
                                     p=item.name
+
+        .section.white#judges
+            .wrap
+                h4.center Judges
+                div.judge-wrap
+                    each person in document.judges
+                        div.judge-cell
+                            div.judge-profile(style="background-image: url("+person.image+");")
+                                span.judge-bio !{person.bio}
+                            span.judge-name= person.name                    
+
         .section.dark#getting-there
                     .wrap
                         .content
                         h4 Getting There
-                        iframe(width='86%' height='500px' frameBorder='0' src='http://a.tiles.mapbox.com/v3/pandringa.h7565j67/mm/zoompan,zoomwheel,geocoder,share.html' id='eventMap')
+                        div.sans-serif-thin#eventAddress
+                            span.sans-serif PilotDC <br/>
+                            span Microsoft's DC Offices <br/> 5404 Wisconsin Avenue <br/> Chevy Chase, MD 20815
+                            
+                        iframe(height="500" frameBorder='0' src='http://a.tiles.mapbox.com/v3/pandringa.h7565j67/mm/zoompan,geocoder,share.html' id='eventMap')
 
 
         .section.white.faq#faq
@@ -127,14 +150,14 @@ html
                 h4 FAQ
                 h5 Do I need previous coding experience?
                 p
-                    strong No! 
-                    | If you like technology, design, or just hanging out with smart people, than this is for you.
+                    strong Nope! 
+                    | The point of the event is to learn. If you want to build a real app that you and others can use in real life, then this event is for you.
 
                 h5 Who can participate?
-                p Pilot events are for all high school students! Coding experience is not required. You aren't required to have ever built an app before; we will have tech talks to help you ramp up quickly. You can come with a team or come alone - there will be a place for you.
+                p Pilot events are for all high school students! Coding experience is not required. You aren't required to have ever built an app before; we will have workshops to help you ramp up quickly. You can come with a team or come alone - there will be a place for you.
 
                 h5 What should I bring?
-                p Laptop and charger, extension cord, cellphone and charger, change of clothes, toothbrush, photo ID.
+                p Laptop and charger, extension cord, cellphone and charger, change of clothes, toothbrush, photo ID, and a nice set of clothes for demos/final pitches.
 
                 h5 How many people per team?
                 p You can have a maximum of <strong>four (4) students</strong> on your team.
@@ -157,10 +180,11 @@ html
                 h5 What if I have a question that's not here?
                 p We'd love to help answer it for you! Send us an email at <a href="mailto:fly@gopilot.org">fly@gopilot.org</a> with your question, and we'll get back to you within 24 hours.
  
-        .section.dark.even
+        .section.dark.even#footer
             .wrap
                 div.center
-                    a(class='button white', href=document.url_register) Register Now >
+                    a(class='button blue footer', href=document.url_register) Register as a student
+                    a(class='button blue footer', href=document.url_mentor_register) Register as a mentor
 
         <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-43652846-2', 'gopilot.org');ga('send', 'pageview');</script>
         <script data-main="js/main.js" src="js/require.js"></script>
