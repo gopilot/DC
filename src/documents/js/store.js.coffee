@@ -51,6 +51,8 @@ require ['jquery'], ($) ->
 		checkout = $('#js-orderButton')
 		$('.item').removeClass 'selected'
 		$('select').removeClass 'visible'
+		total = 0
+		$('.js-price').html "$"+total.toFixed(2)
 		text = checkout.html()
 		color = checkout.css 'background'
 		checkout.html("<span class='finished-text'><i class='fa fa-check'></i> Order Sent!</span>");
