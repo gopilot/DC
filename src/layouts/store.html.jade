@@ -118,12 +118,12 @@ html
 		<script src="https://s3.amazonaws.com/fireform/fireform.min.js"></script>
 		<script data-main="/js/store.js" src="/js/require.js"></script>
 		<script  src="https://s3.amazonaws.com/fireform/fireform.min.js"></script>
-		<script >
-		/* See more options at http://fireform.org/docs */
-		var options = {
-		simpleValidation:false,
-		formValidationClass:"custom-submit-success",
-		callback:function(err, val){ console.log(err,"callback") }
-		}
-		new Fireform('#MySelector', 'http://fireform.org/list/152/DC_Shirts', options)
+		<script>
+			/* See more options at http://fireform.org/docs */
+			var options = {
+			simpleValidation:false,
+			formValidationClass:"custom-submit-success",
+			callback:function(err, val){ console.log(err,"callback") }
+			}
+			new Fireform('#MySelector', 'http://fireform.org/list/152/DC_Shirts', options)
 		</script>
