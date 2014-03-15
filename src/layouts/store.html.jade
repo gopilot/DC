@@ -86,11 +86,6 @@ html
 									div.title Unisex Shirt
 									div.price $15.00
 									div.click (Click to Select)
-			<form id="MySelector">
-			<input type="text" name="givenname" placeholder="Name">
-			<input type="text" name="message" placeholder="Message">
-			<input type="submit">
-			</form>
 
 		div#popup
 			div.form-container
@@ -105,7 +100,7 @@ html
 							input(type="hidden" name="total" id="totalField" value="0")
 							input(type="hidden" name="paid" id="paidField" value="false")
 							input(type="hidden" name="stripe" id="stripeField" value="")
-							input(type="submit" name="submit" id="js-submitForm" style="display: none;")
+
 					div.button.double#js-orderButton
 						div.half-button.left#left-button 
 							i.fa.fa-credit-card
@@ -118,11 +113,3 @@ html
 		<script src="https://s3.amazonaws.com/fireform/fireform.min.js"></script>
 		<script data-main="/js/store.js" src="/js/require.js"></script>
 		<script  src="https://s3.amazonaws.com/fireform/fireform.min.js"></script>
-		script.
-			/* See more options at http://fireform.org/docs */
-			var options = {
-			simpleValidation:false,
-			formValidationClass:"custom-submit-success",
-			callback:function(err, val){ console.log(err,"callback") }
-			}
-			new Fireform('#MySelector', 'http://fireform.org/list/152/DC_Shirts', options)

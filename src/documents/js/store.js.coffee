@@ -21,7 +21,7 @@ require ['jquery'], ($) ->
 
 
 	paymentsServer = "http://payments.gopilot.org/"
-	fireformPage = "http://fireform.org/list/152/DC_Shirts"
+	fireformPage = "http://localhost:8000/list/160/DC"
 	
 
 	price =
@@ -87,13 +87,17 @@ require ['jquery'], ($) ->
 			)
 	)
 	console.log $('#checkoutForm')
-	new Fireform '#checkoutForm', fireformPage, {
-		emailNotification: 'peter@gopilot.org',
-		emailConfirmationName: 'hello!',
-		emailConfirmationSubject: 'Order made!',
-		emailConfirmationBodyText: 'lalalala',
+
+	fireformOptions = {
+		emailNotification:"fly@gopilot.org"
+		emailConfirmationName:"email" # The form input we get the email from.
+		emailConfirmationFrom:"fly@gopilot.org"  # Email appears as sent by this address.
+		emailConfirmationSubject:"Thanks for signing up"
+		emailConfirmationBodyHTML:"<p>You have been signed up!</p>"
+		emailConfirmationBodyText:"You have been signed up!"
 		callback: (err, val) ->
-			alert 'checkout callback '+val
+			window.console.log('checkout callback', val, err)
+			alert 'checkout callback '+JSON.stringify(val)+" "+JSON.stringify(err)
 			checkout = $('#js-orderButton')
 			text = checkout.html()
 			color = checkout.css 'background'
@@ -106,6 +110,8 @@ require ['jquery'], ($) ->
 				$('.item').removeClass 'selected'
 			, 2000
 	}
+	new Fireform '#checkoutForm', fireformPage, fireformOptions
+
 	$('.item').click (event) ->
 		$(this).toggleClass 'selected'
 		$(this).children('.check').toggleClass 'visible'
