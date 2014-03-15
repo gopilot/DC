@@ -20,8 +20,7 @@ require ['jquery'], ($) ->
 		$('#js-checkoutButton').addClass 'show-wide'
 
 
-	paymentsServer = "http://payments.gopilot.org/"
-	fireformPage = "http://localhost:8000/list/160/DC"
+	paymentsServer = "http://payments.gopilot.org"
 	
 
 	price =
@@ -36,27 +35,32 @@ require ['jquery'], ($) ->
 		unisex: false
 		hoodie: false
 
-	generateDescription = () ->
+	generateOrder = () ->
 		cart = []
 		if toggled.ladies
-			cart.push "Ladies' T-Shirt"
+			cart.push $('#ladies').prev().val()+" Ladies' T-Shirt"
 		if toggled.hoodie
-			cart.push "Unisex Hoodie"
+			cart.push $('#hoodie').prev().val()+" Hoodie"
 		if toggled.unisex
-			cart.push "Unisex T-Shirt"
+			cart.push $('#unisex').prev().val()+" Unisex T-Shirt"
 		return cart.join ", "
 
-	generateSizes = () ->
-		sizes = []
-		if toggled.ladies
-			sizes.push $('#ladies').prev().val()+" Ladies' T-Shirt"
-		if toggled.hoodie
-			sizes.push $('#hoodie').prev().val()+" Hoodie"
-		if toggled.unisex
-			sizes.push $('#unisex').prev().val()+" Unisex T-Shirt"
-		return sizes.join ", "
-
 	
+	finished = (val, err) ->
+		console.log 'Order placed!'
+		checkout = $('#js-orderButton')
+		$('.item').removeClass 'selected'
+		$('select').removeClass 'visible'
+		text = checkout.html()
+		color = checkout.css 'background'
+		checkout.html("<span class='finished-text'><i class='fa fa-check'></i> Order Sent!</span>");
+		checkout.css('background', '#7fc028')
+		setTimeout () ->
+			checkout.html(text);
+			checkout.css('background', color)
+			$('#popup').removeClass 'shown'
+		, 2000
+
 	stripeKey = "pk_live_BXRjo7MBwBvPSNM1338ZQVj3"
 	stripeKey = "pk_test_bVNI8WnLVJlwNySLMliWPRjW" if window.location.hostname == 'localhost'
 	
@@ -71,50 +75,17 @@ require ['jquery'], ($) ->
 				unisex: toggled.unisex.toString()
 				hoodie: toggled.hoodie.toString()
 				total: total
-				livePayments: "true"
+				livePayments: "false"
 				email: $('#emailField').val()
-			}, (charge, status) ->
-				console.log 'post callback', status
-				if status == "success"
-					$('#orderField').val generateSizes()
-					$('#totalField').val total
-					$('#paidField').val 'true'
-					$('#stripeField').val charge
-					$('#js-submitForm').click();
-				else
-					console.error "Error!", charge, status 
-					alert "Error submitting payment: "+charge 
-			)
+				first_name: $('#nameField').val().split(" ")[0]
+				last_name: $('#nameField').val().split(" ")[1]
+				order: generateOrder(),
+				event: 'DC'
+			}, finished)
 	)
-	console.log $('#checkoutForm')
-
-	fireformOptions = {
-		emailNotification:"fly@gopilot.org"
-		emailConfirmationName:"email" # The form input we get the email from.
-		emailConfirmationFrom:"fly@gopilot.org"  # Email appears as sent by this address.
-		emailConfirmationSubject:"Thanks for signing up"
-		emailConfirmationBodyHTML:"<p>You have been signed up!</p>"
-		emailConfirmationBodyText:"You have been signed up!"
-		callback: (err, val) ->
-			window.console.log('checkout callback', val, err)
-			alert 'checkout callback '+JSON.stringify(val)+" "+JSON.stringify(err)
-			checkout = $('#js-orderButton')
-			text = checkout.html()
-			color = checkout.css 'background'
-			checkout.html("<i class='fa fa-check'></i> Order Sent!");
-			checkout.css('background', '#7fc028')
-			setTimeout () ->
-				checkout.html(text);
-				checkout.css('background', color)
-				$('#popup').removeClass 'shown'
-				$('.item').removeClass 'selected'
-			, 2000
-	}
-	new Fireform '#checkoutForm', fireformPage, fireformOptions
-
+	
 	$('.item').click (event) ->
 		$(this).toggleClass 'selected'
-		$(this).children('.check').toggleClass 'visible'
 		$(this).prev().toggleClass 'visible'
 		itemName = $(this).attr('id')
 		if toggled[itemName]
@@ -151,11 +122,9 @@ require ['jquery'], ($) ->
 		else
 			$('#emailGroup').removeClass 'has-error'
 
-		$('#popup').removeClass 'shown'
-		console.log 'popup shown'
 		handler.open(
 			name: "PilotDC"
-			description: generateDescription()
+			description: generateOrder()
 			amount: total*100
 			email: $('#emailField').val()
 		);
@@ -172,11 +141,18 @@ require ['jquery'], ($) ->
 			return $('#emailGroup').addClass 'has-error'
 		else
 			$('#emailGroup').removeClass 'has-error'
-
-		$('#orderField').val generateSizes()
-		$('#totalField').val total
-		$('#js-submitForm').click()
-		console.log 'clicked'
+		$.post(paymentsServer, {
+			ladies: toggled.ladies.toString()
+			unisex: toggled.unisex.toString()
+			hoodie: toggled.hoodie.toString()
+			total: total
+			livePayments: "false"
+			email: $('#emailField').val()
+			first_name: $('#nameField').val().split(" ")[0]
+			last_name: $('#nameField').val().split(" ")[1]
+			order: generateOrder()
+			event: 'DC'
+		}, finished)
 		return false;
 
 	$('#js-closeForm').click (event) ->

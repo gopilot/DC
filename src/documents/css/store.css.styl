@@ -277,6 +277,9 @@ select
 	&.selected
 		border-color green
 
+	&.selected .check
+		display block
+
 	.check
 		color green
 		font-size 50px
@@ -284,9 +287,6 @@ select
 		top 3px
 		left 10px
 		display none
-
-		&.visible
-			display block
 
 	.pre-order-only
 		position absolute
@@ -448,6 +448,14 @@ select
 	    
 	    i
 	    	margin 0px 10px
+
+	    .finished-text
+	    	display block
+	    	height 100%
+	    	line-height 100%
+	    	text-align auto
+	    	margin-top 17px
+	    	
 	    
 	    &:hover
 	        text-decoration none
