@@ -429,21 +429,32 @@ header
     h4
         margin-bottom 0px
 
-.sponsor-logo
+.sponsor-row
     display block
-    max-width 100%
+    width 100%
+    overflow hidden
+    text-align center
+
+    a
+        display inline-block
+        overflow none
+
+.sponsor-logo
+    display inline-block
     background-size 100%
     background-repeat no-repeat
     margin-bottom 50px
     transition: background-image 0.5s;
     -webkit-transition: background-image 0.5s; /* Safari */
     margin 25px
+    opacity 0.6
     filter grayscale(100%)
     -webkit-filter grayscale(100%)
     -moz-filter grayscale(100%)
-    transition filter 0.25s
-    transition -webkit-filter 0.25s
-    transition -moz-filter 0.25s
+    transition filter 0.5s
+    transition -webkit-filter 0.5s
+    transition -moz-filter 0.5s
+    transition opacity 0.5s
 
     &.half
         display inline-block
@@ -453,10 +464,13 @@ header
         margin auto
 
     &:hover
+        border-bottom none !important
+        text-decoration none
+        border none
         filter none
         -webkit-filter none
         -moz-filter none
-
+        opacity 1
 
 .sponsor-email
     margin-bottom 30px

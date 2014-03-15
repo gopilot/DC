@@ -12,6 +12,14 @@ require.config(
 require ['jquery'], ($) ->
 	#console.log 'scripts loaded (via assets/js/main.coffee)'
 	# paymentsServer = "http://localhost:5000/"
+	
+	# Touchscreen devices
+	if /(iPad|iPhone|iPod|Android)/g.test navigator.userAgent 
+		console.log "Touch!"
+		$('.item').addClass 'show-overlay'
+		$('#js-checkoutButton').addClass 'show-wide'
+
+
 	paymentsServer = "http://payments.gopilot.org/"
 	fireformPage = "http://fireform.org/list/152/DC_Shirts"
 	
@@ -19,7 +27,7 @@ require ['jquery'], ($) ->
 	price =
 		ladies: 15
 		unisex: 15
-		hoodie: 20
+		hoodie: 30
 
 	total = 0
 
@@ -27,7 +35,6 @@ require ['jquery'], ($) ->
 		ladies: false
 		unisex: false
 		hoodie: false
-		button: false
 
 	generateDescription = () ->
 		cart = []
@@ -42,11 +49,11 @@ require ['jquery'], ($) ->
 	generateSizes = () ->
 		sizes = []
 		if toggled.ladies
-			sizes.push $('#ladies').next().val()+" Ladies' T-Shirt"
+			sizes.push $('#ladies').prev().val()+" Ladies' T-Shirt"
 		if toggled.hoodie
-			sizes.push $('#hoodie').next().val()+" Hoodie"
+			sizes.push $('#hoodie').prev().val()+" Hoodie"
 		if toggled.unisex
-			sizes.push $('#unisex').next().val()+" Unisex T-Shirt"
+			sizes.push $('#unisex').prev().val()+" Unisex T-Shirt"
 		return sizes.join ", "
 
 	
@@ -57,7 +64,7 @@ require ['jquery'], ($) ->
 		key: stripeKey
 		image: "/img/logo_square.png"
 		token: (token, args) ->
-			console.log("stripe 1", token)
+			console.log "stripe callback", token
 			$.post(paymentsServer, {
 				stripeToken: token.id
 				ladies: toggled.ladies.toString()
@@ -67,7 +74,7 @@ require ['jquery'], ($) ->
 				livePayments: "true"
 				email: $('#emailField').val()
 			}, (charge, status) ->
-				console.log status
+				console.log 'post callback', status
 				if status == "success"
 					$('#orderField').val generateSizes()
 					$('#totalField').val total
@@ -79,24 +86,30 @@ require ['jquery'], ($) ->
 					alert "Error submitting payment: "+charge 
 			)
 	)
-
+	console.log $('#checkoutForm')
 	new Fireform '#checkoutForm', fireformPage, {
+		emailNotification: 'peter@gopilot.org',
+		emailConfirmationName: 'hello!',
+		emailConfirmationSubject: 'Order made!',
+		emailConfirmationBodyText: 'lalalala',
 		callback: (err, val) ->
-			checkout = $('#js-checkoutButton')
+			alert 'checkout callback '+val
+			checkout = $('#js-orderButton')
 			text = checkout.html()
 			color = checkout.css 'background'
 			checkout.html("<i class='fa fa-check'></i> Order Sent!");
 			checkout.css('background', '#7fc028')
-			$('#js-closeForm').click();
 			setTimeout () ->
 				checkout.html(text);
 				checkout.css('background', color)
+				$('#popup').removeClass 'shown'
+				$('.item').removeClass 'selected'
 			, 2000
 	}
 	$('.item').click (event) ->
 		$(this).toggleClass 'selected'
 		$(this).children('.check').toggleClass 'visible'
-		$(this).next().toggleClass 'visible'
+		$(this).prev().toggleClass 'visible'
 		itemName = $(this).attr('id')
 		if toggled[itemName]
 			total -= price[itemName]
@@ -104,12 +117,36 @@ require ['jquery'], ($) ->
 			total += price[itemName]
 		
 		toggled[itemName] = !toggled[itemName]
-		$('#price').html "$"+total.toFixed(2)
+		$('.js-price').html "$"+total.toFixed(2)
 		return false
 
+	$('#nameField').focusout (event) ->
+		if !$(this).val()
+			return $('#nameGroup').addClass 'has-error'
+		else
+			$('#nameGroup').removeClass 'has-error'
+
+	$('#emailField').focusout (event) ->
+		if !$(this).val()
+			return $('#emailGroup').addClass 'has-error'
+		else
+			$('#emailGroup').removeClass 'has-error'
+
 	$('#left-button').click (event) ->
+		# Validation
 		if !(toggled.ladies || toggled.unisex || toggled.hoodie)
 			return alert("You need to pick at least one item!")
+		if !$('#nameField').val()
+			return $('#nameGroup').addClass 'has-error'
+		else
+			$('#nameGroup').removeClass 'has-error'
+		if !$('#emailField').val()
+			return $('#emailGroup').addClass 'has-error'
+		else
+			$('#emailGroup').removeClass 'has-error'
+
+		$('#popup').removeClass 'shown'
+		console.log 'popup shown'
 		handler.open(
 			name: "PilotDC"
 			description: generateDescription()
@@ -118,25 +155,29 @@ require ['jquery'], ($) ->
 		);
 
 	$('#right-button').click (event) ->
+		# Validation
 		if !(toggled.ladies || toggled.unisex || toggled.hoodie)
-			return alert("You need to pick at least one item!")
+			return alert "You need to pick at least one item!"
+		if !$('#nameField').val()
+			return $('#nameGroup').addClass 'has-error'
+		else
+			$('#nameGroup').removeClass 'has-error'
+		if !$('#emailField').val()
+			return $('#emailGroup').addClass 'has-error'
+		else
+			$('#emailGroup').removeClass 'has-error'
+
 		$('#orderField').val generateSizes()
 		$('#totalField').val total
 		$('#js-submitForm').click()
+		console.log 'clicked'
 		return false;
 
-
 	$('#js-closeForm').click (event) ->
-		if toggled['button']
-			toggled['button'] = false
-			$('#js-checkoutButton').toggleClass 'visible'
-			$('#js-slideForm').toggleClass 'visible'
-			return false
-		return true
+		$('#popup').removeClass 'shown'
+		return false
 
-	$('#button-container').click (event) ->
-		if !toggled['button']
-			$('#js-checkoutButton').toggleClass 'visible'
-			$('#js-slideForm').toggleClass 'visible'
-			toggled['button'] = true
+	$('.js-checkoutButton').click (event) ->
+		console.log 'clicked'
+		$('#popup').addClass 'shown'
 		return false
