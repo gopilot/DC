@@ -425,7 +425,8 @@ header
 
 .sponsors
     .sponsor-logos
-        min-height 300px
+        min-height 200px
+        max-width 100%
 
     h4
         margin-bottom 0px
@@ -433,12 +434,20 @@ header
 .sponsor-row
     display block
     width 100%
-    overflow hidden
-    text-align center
+    max-width 100%
+    text-align top
+    min-height 175px
 
     a
         display inline-block
+        width 400px
+        height 100%
+        text-align center
         overflow none
+        margin 25px
+
+    a:hover
+        border-bottom none
 
 .sponsor-logo
     display inline-block
@@ -447,7 +456,7 @@ header
     margin-bottom 50px
     transition: background-image 0.5s;
     -webkit-transition: background-image 0.5s; /* Safari */
-    margin 25px
+    max-width 100%
     opacity 0.6
     filter grayscale(100%)
     -webkit-filter grayscale(100%)
