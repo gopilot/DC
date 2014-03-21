@@ -37,6 +37,7 @@ html
 			.wrap
 				div.center Order now, and then pick up your shirts at PilotDC!
 				.container
+					.col-sm-2
 					.col-sm-4
 						select(class='selectpicker form-control' title='Choose a size...')
 							option Choose a size...
@@ -53,23 +54,23 @@ html
 									div.price $15.00
 									div.click (Click to Select)
 				
-					.col-sm-4
-						select(class='selectpicker form-control' title='Choose a size...')
-							option Choose a size...
-							option Small
-							option Medium
-							option Large
-							option Extra Large
+					//- .col-sm-4
+					//- 	select(class='selectpicker form-control' title='Choose a size...')
+					//- 		option Choose a size...
+					//- 		option Small
+					//- 		option Medium
+					//- 		option Large
+					//- 		option Extra Large
 
-						.item#hoodie
-							div.check.fa.fa-check-circle
-							div.pre-order-only 
-								span Pre-order only! 
-							div.overlay-text
-								div.text-inner
-									div.title Unisex Hoodie
-									div.price $30.00
-									div.click (Click to Select)
+					//- 	.item#hoodie
+					//- 		div.check.fa.fa-check-circle
+					//- 		div.pre-order-only 
+					//- 			span Pre-order only! 
+					//- 		div.overlay-text
+					//- 			div.text-inner
+					//- 				div.title Unisex Hoodie
+					//- 				div.price $30.00
+					//- 				div.click (Click to Select)
 
 					.col-sm-4
 						select(class='selectpicker form-control' title='Choose a size...')
@@ -86,7 +87,8 @@ html
 									div.title Unisex Shirt
 									div.price $15.00
 									div.click (Click to Select)
-
+					.col-sm-2
+				
 		div#popup
 			div.form-container
 					div.close.fa.fa-times#js-closeForm
