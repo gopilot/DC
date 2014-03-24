@@ -64,6 +64,17 @@ html
                     h4 What is a Pilot event?
                     p A Pilot event is a day long creative competition where people who are always thinking up new ideas come together for a weekend and collaborate to build them. Entrepreneurs, designers, and developers work in teams to create apps for web or mobile platforms&mdash;in our case, these creators are high school students.
 
+        .section.white#judges
+            .wrap
+                h4.center Judges
+                div.judge-wrap
+                    each person in document.judges
+                        div.judge-cell
+                            div.judge-profile(style="background-image: url("+person.image+");")
+                                span.judge-bio !{person.bio}
+                            span.judge-name= person.name                    
+
+
         //-.section.dark.image.prizes(style="background-image: url(img/pic2.jpg)")
         //-    .wrap
         //-        h4 Prizes
@@ -94,6 +105,18 @@ html
         //-                    span Random raffle
         //-                    h5 Swag (t-shirts, all kinds of great stuff)
 
+        .section.dark.image.schedule(style="background-image: url(img/pic2.jpg)")#schedule
+            .wrap
+                h4 Schedule (Tentative)
+                each day in document.schedule 
+                    div
+                        h5= day.day
+                        ol
+                            each item in day.items
+                                li
+                                    time=item.time
+                                    p=item.name
+
         .section.white.sponsors#sponsors
             .wrap.center
                 h4 Sponsors
@@ -122,28 +145,6 @@ html
                     <br/>
 
                 a(href='/sponsorship.pdf', class='upper center sponsor-email') Want to see your company here? >
-
-        .section.dark.image.schedule(style="background-image: url(img/pic2.jpg)")#schedule
-            .wrap
-                h4 Schedule (Tentative)
-                each day in document.schedule 
-                    div
-                        h5= day.day
-                        ol
-                            each item in day.items
-                                li
-                                    time=item.time
-                                    p=item.name
-
-        .section.white#judges
-            .wrap
-                h4.center Judges
-                div.judge-wrap
-                    each person in document.judges
-                        div.judge-cell
-                            div.judge-profile(style="background-image: url("+person.image+");")
-                                span.judge-bio !{person.bio}
-                            span.judge-name= person.name                    
 
         .section.dark#getting-there
                     .wrap
