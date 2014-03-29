@@ -14,11 +14,11 @@ html
 
         title=document.title
 
-        link(rel='stylesheet', href='/css/master.css')
+        link(rel='stylesheet', href='/css/dayof.css')
     body
         .section.leader.no-nav.blue
             .wrap
-                h1 Day-of Event Info
+                h1 <span id="logo"></span> Day-of Event Info
         
         if document.announcements.length != 0
             .section.white#announcements
@@ -30,36 +30,6 @@ html
                                 div.time= post.time+" - "
                                 h5= post.title
                             div.post!= post.content
-
-        //-.section.dark.image.prizes(style="background-image: url(/img/pic2.jpg)")
-        //-    .wrap
-        //-        h4 Prizes
-        //-        ol
-        //-           li
-        //-                div
-        //-                    span 1<sup>st</sup>
-        //-                    h5 iPad mini
-        //-                    p 1/team member
-        //-            li
-        //-                div
-        //-                    span 2<sup>nd</sup>
-        //-                    h5 Apple TV
-        //-                    p 1/team member
-        //-            li
-        //-                div
-        //-                   span 3<sup>rd</sup>
-        //-                   h5 Amazon Kindle 
-        //-                   p 1/team member
-        //-
-        //-        ul.other
-        //-            li
-        //-                div
-        //-                    span Honorable mention
-        //-                    h5 Gift cards
-        //-            li
-        //-                div
-        //-                    span Random raffle
-        //-                    h5 Swag (t-shirts, all kinds of great stuff)
 
         .section.dark.image.schedule(style="background-image: url(/img/pic2.jpg)")#schedule
             .wrap
@@ -85,7 +55,7 @@ html
 
         .section.social#twitter
             .wrap
-                h4 Follow the action on Twitter!
+                h4 #PilotDC on Twitter
                 .twitter-container
                     .twitter-stream
                         <a class="twitter-timeline" href="https://twitter.com/search?q=%23PilotDC" data-widget-id="449726781105262593">Tweets about "#PilotDC"</a>

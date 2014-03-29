@@ -1,0 +1,53 @@
+doctype
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title PilotDC day-of information
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='css/master.css')
+  body
+    .background 
+    .row.title-bar.blue
+        h1.pilot-logo
+        h1 PilotDC day-of information
+
+    .section
+        .box.copy.left.white.span-12
+            h4 Announcements
+            .typ-large
+                h5.typ-larger=announcements[0].title
+                .typ-small=announcements[0].time
+                p| !{announcements[0].content}
+                each post in announcements.slice(1)
+                    hr
+                    h5=post.title
+                    .typ-small=post.time
+                    p.typ-base| !{post.content}
+
+    .section.schedule.large
+        .box.title.blue.span-3
+            h4 Schedule
+
+        each day in schedule
+            .row.day-title
+                .box.span-9.push-3
+                    h6: span= day.day
+            each item in day.items
+                .row
+                    .box.span-3.typ-right
+                       h6= item.time
+                    .box.span-9= item.name
+
+
+
+
+    .section.align-corners.workshops
+        .box.title.left.blue.span-3
+            h4 Workshops Schedule
+        .box.copy.slate.span-9
+            each workshop in workshops
+                h5.title <span class="time">#{workshop.time}p</span> #{workshop.title}
+                div.description!= workshop.description
+

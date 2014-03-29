@@ -1,3 +1,4 @@
 node_modules/*
 .docpad.db
 out/*
+*/node_modules
