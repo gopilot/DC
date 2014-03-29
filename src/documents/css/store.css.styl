@@ -161,12 +161,82 @@ h1 + h3
         text-align center
 
 #header
-	font-family Clarendon
-	font-size 70px
+	overflow hidden
 
-.col-sm-4
-	display block
-	height 680px
+	.wrap
+		overflow hidden
+		position relative
+
+	.title
+		font-family Clarendon
+		font-size 70px
+		position relative
+		top 10px
+
+	.pull-right
+		padding-bottom 0px
+		position absolute
+		bottom 0
+		right 0
+
+.total
+	height 100%
+	line-height 100%
+	margin-right 10px
+	position relative
+	top -10px
+	font-size 40px
+
+.checkout
+	position relative
+	display inline-block
+	background white
+	width 50px
+	height 50px
+	border-radius 26px
+	overflow hidden
+	color blue
+	text-align center
+	line-height 50px
+	vertical-align center
+	cursor pointer
+	transition width 1s
+
+	.fa
+		float left
+		width 50px
+		height 49px
+		line-height 100%
+		padding-top 13px
+
+	.text
+		position absolute
+		left 50px
+
+	&:hover
+		width 158px
+
+	&:active
+		background #333
+
+#mobileFloat
+	display none
+	position fixed
+	width 100%
+	top 0
+	border 1px solid black
+	border-top none
+	background rgba(100, 100, 100, 0.85)
+	text-align center
+	padding 10px 0px
+	z-index 99
+
+.container
+	margin-top 10px
+
+	.col-sm-4
+		display block
+		padding 0px 3px
 
 select
 	display block
@@ -174,70 +244,130 @@ select
 	margin auto
 	opacity 0
 	transition opacity 1s
+	pointer-events none
+	font-size 30px
+
 	&.visible
 		opacity 1
+		pointer-events auto
+
+// nib's @2x image mixins
+#unisex
+	image '/img/shirts/unisex.png'
+
+#ladies
+	image '/img/shirts/ladies.png'
+
+#hoodie
+	image '/img/shirts/hoodie.png'
 
 .item
-	margin 10px
-	padding 10px
-	border-radius 10px
-	border 3px solid rgba(0, 0, 0, 0)
+	border 5px solid white
 	position relative
+	margin 10px 0px
 	cursor pointer
-	height 550px
+	height 600px
+	background-size cover
+	background-position center
+	overflow hidden
+
+	&:hover .overlay-text, &.show-overlay .overlay-text, &.selected .overlay-text
+		top 0
 
 	&.selected
-		border 3px solid green
+		border-color green
+
+	&.selected .check
+		display block
 
 	.check
 		color green
-		font-size 30px
+		font-size 50px
 		position absolute
-		top 10px
+		top 3px
 		left 10px
 		display none
 
-		&.visible
-			display block
-
-	.title
-		width 100%
-		text-align center
-		font-size 30px
-		font-weight 500
-		font-family Clarendon
-		color blue
-
-	.price
-		width 100%
-		text-align center
-		font-size 30px
-		font-weight 500
-		font-family Clarendon
-		color #333
-
-	.img
-		display block
-		margin auto
-		width 90%
-
-	.description
-		width 100%
-		text-align center
-
-	.click
-		width 100%
-		text-align center
-		color blue
+	.pre-order-only
 		position absolute
-		bottom 0
+		width 220px
+		height 220px
+		top -110px
+		right -110px
+		0px
+		transform rotate(45deg)
+		background green
+		text-align bottom
+		span
+			position absolute
+			bottom 0
+			width 100%
+			text-align center
+			font-weight 500
 
-#button-container
-	display block
-	width 90%
-	margin auto
-	position relative
-	overflow hidden
+	.overlay-text
+		position absolute
+		width 100%
+		height 100%
+		top 100%
+		left 0
+		padding-top 100px
+		background linear-gradient(top, 40% rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+		transition top 1s
+
+		.text-inner
+			width 100%
+			margin-bottom 10px
+			position absolute
+			left 0
+			bottom 0
+
+			.title
+				width 100%
+				text-align center
+				font-size 30px
+				font-weight 500
+				font-family Clarendon
+				color blue
+
+			.price
+				width 100%
+				text-align center
+				font-size 30px
+				font-weight 500
+				font-family Clarendon
+				color #333
+				color white
+
+			.description
+				width 100%
+				text-align center
+				color white
+
+			.click
+				width 100%
+				text-align center
+				color blue
+
+#popup
+	position fixed
+	top 0
+	left 0
+	right 0
+	bottom 0
+	background rgba(0, 0, 0, 0.75)
+	z-index 999
+	opacity 0
+	transition opacity .5s
+	pointer-events none
+
+	&.shown
+		opacity 1
+		pointer-events auto
+
+	&.shown .form-container
+		top 50%
+
 
 	.above
 		position relative
@@ -253,47 +383,51 @@ select
 
 		// &.invisible
 		// 	opacity 0.0
-	.slide-container
+	.form-container
 		display block
-		width 100%
-		height 240px
-		position relative
-		overflow hidden
+		position absolute
+		top 150%
+		left 50%
+		width 550px
+		margin-left -275px //offset width
+		height 320px
+		margin-top -140px //offset height
+		padding 25px
+		border-radius 10px
+		background #fff
+		transition top 1s
+		color black
 
-		.underneath
-			position relative
-			top -240px
-			transition top 1s
-			transition-delay 0.25s
 
-			&.visible
-				top 0px
-				transition-delay 0s
+		.close
+			position absolute
+			top 3px
+			left 10px
+			font-size 40px
+			opacity 0.7
+			color gray
+			transition opacity 0.5s
+			transition color 0.5s
 
-			.close
-				position absolute
-				top 0
-				left 0
-				font-size 25px
-				opacity 0.7
-				color gray
-				transition opacity 0.5s
-				transition color 0.5s
-
-				&:hover
-					color black
-					opacity 1.0
+			&:hover
+				color black
+				opacity 1.0
 
 	.inputs
 		margin auto
+
+		.form-group
+			width 100%
+
 		input
 			height 50px
 			padding 15px
 			font-size 30px
-			width 50%
+			width 85%
 			display block
 			margin 20px auto
 			text-align center
+
 
 	.button
 	    display inline-block
@@ -314,6 +448,14 @@ select
 	    
 	    i
 	    	margin 0px 10px
+
+	    .finished-text
+	    	display block
+	    	height 100%
+	    	line-height 100%
+	    	text-align auto
+	    	margin-top 17px
+	    	
 	    
 	    &:hover
 	        text-decoration none
@@ -341,7 +483,38 @@ select
 		    		background green
 		    		&:hover
 		    			background dark-green
-		    	
+// Tablet and smaller styles
+@media only screen and (max-device-width : 1024px)
+	.item
+		background-size auto 100% !important
+	.wrap
+		margin 0px 10px
+	.checkout
+		width 158px
 
 
+// Mobile styles
+@media only screen and (max-device-width : 480px)
+	.item
+		height 400px
+
+	#header
+		.pull-left
+			float none
+			margin auto
+			margin-top 50px
+		.pull-right
+			display none
+
+	#mobileFloat
+		display block
+
+	#popup
+		.form-container
+			width 96%
+			left 0
+			margin-left 2%
+			.button
+				height 75px
+		
 

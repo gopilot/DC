@@ -421,23 +421,49 @@ header
         clear both
         float right
         margin-right 0px
+        margin-top 12px
 
 .sponsors
     .sponsor-logos
-        min-height 300px
+        min-height 200px
+        max-width 100%
 
     h4
         margin-bottom 0px
 
-.sponsor-logo
+.sponsor-row
     display block
+    width 100%
     max-width 100%
+    text-align top
+    min-height 175px
+
+    a
+        display inline-block
+        max-width 400px
+        height 100%
+        overflow none
+        margin 10px 25px
+
+    a:hover
+        border-bottom none
+
+.sponsor-logo
+    display inline-block
     background-size 100%
     background-repeat no-repeat
-    margin-bottom 50px
+    margin-bottom 0px
     transition: background-image 0.5s;
     -webkit-transition: background-image 0.5s; /* Safari */
-    margin: 25px
+    max-width 100%
+    opacity 0.6
+    filter grayscale(100%)
+    -webkit-filter grayscale(100%)
+    -moz-filter grayscale(100%)
+    transition filter 0.5s
+    transition -webkit-filter 0.5s
+    transition -moz-filter 0.5s
+    transition opacity 0.5s
 
     &.half
         display inline-block
@@ -446,32 +472,14 @@ header
         display block
         margin auto
 
-#microsoft
-    background-image url(/img/sponsors/microsoft-black.png)
-    height 250px
-    width 679px
     &:hover
-        background-image url(/img/sponsors/microsoft-color.png)
-        border-bottom none
-
-#dc-tech
-    background-image url(/img/sponsors/dctech-black.png)
-    width 225px
-    height 150px
-    &:hover
-        background-image url(/img/sponsors/dctech-color.png)
-        border-bottom none
-
-#modev
-    background-image url(/img/sponsors/modev-black.png)
-    height 120px
-    width 368px
-    &:hover
-        background-image url(/img/sponsors/modev-color.png)
-        border-bottom none
-
-
-
+        border-bottom none !important
+        text-decoration none
+        border none
+        filter none
+        -webkit-filter none
+        -moz-filter none
+        opacity 1
 
 .sponsor-email
     margin-bottom 30px
@@ -551,9 +559,7 @@ header
                 background-image url(/img/judges/dan_berger.jpg)
 
             #brittany-heyd
-                background-image url(/img/judges/brittany_heyd.jpg)
-
-        
+                background-image url(/img/judges/brittany_heyd.jpg)      
 
 #eventMap
     margin-left 5%
@@ -681,5 +687,27 @@ header
         font-size .6em
         margin-top -.4em
         font-family DIN
+
+#announcements
+   .announcement
+        margin-bottom 20px
+        .post-head
+            h5
+                display inline-block
+                margin-top -3px
+                margin-left 3px
+            .time
+                display inline-block
+                float left
+
+
+#packing
+    ul
+        font-weight bold
+        li
+            font-weight 200
+            padding-left 15px
+            list-style-type disc
+            list-style-position inside
 
 @import '_mq'

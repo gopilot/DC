@@ -33,17 +33,17 @@ html(style="width: 100%; height: 100%;")
     body
         div.wrap.full
             h2.center.serif#title We'll see you at #{document.title}!
-            h4.center.sans-serif Look for an email in the next few weeks with more details
+            h4.center.sans-serif Keep your eyes out for emails from us!
             ol#actions 
                 span.serif#list-title What now?
-                li Get your waivers signed, and email them to dc@gopilot.org!
+                li You MUST print out and sign your waivers
                 div.button-container
                     a(href="/waiver.pdf" class="button button-large" id="waiverButton" target="_blank")
                         i.fa.fa-print
                         span.button-text Print waivers >
                 li Join the Facebook event to see who else is going!
                 div.button-container
-                    a(href=document.facebook_event class="button button-large" id="eventButton" target="_blank")
+                    a(class="button button-large" id="eventButton" target="_blank" href=document.facebook_event)
                         i.fa.fa-calendar
                         span.button-text Facebook Event >
                 li Follow us to get updates!
@@ -54,6 +54,9 @@ html(style="width: 100%; height: 100%;")
                     a(href="https://twitter.com/grabtheyoke" class="button button-small" id="twitterFollow" target="_blank")
                         i.fa.fa-twitter
                         span.button-text @GrabTheYoke
+                    a(href="https://instagram.com/grabtheyoke" class="button button-small" id="instagramFollow" target="_blank")
+                        i.fa.fa-camera-retro
+                        span.button-text GrabTheYoke
                 //- li Invite your friends!
                 //- div.button-container
                 //-     a(href="https://twitter.com/share?url="+encodeURIComponent(document.share_url)+"&text="+encodeURIComponent(document.tweet) class="button button-small" id="tweet" target="_blank")

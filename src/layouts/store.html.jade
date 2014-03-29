@@ -18,85 +18,97 @@ html
 		link(rel='stylesheet', href='/css/bootstrap/css/bootstrap.css')
 		link(rel='stylesheet', href='/css/store.css')
 	body
+		div#mobileFloat
+			span.total.js-price $0.00
+			span.checkout.js-checkoutButton
+				span.fa.fa-shopping-cart
+				span.text Checkout
+
 		section.blue#header
 			.wrap
-				h4 Preorder T-Shirts
+				.pull-left
+					span.title Preorder T-Shirts
+				.pull-right
+					span.total.js-price $0.00
+					span.checkout.js-checkoutButton
+						span.fa.fa-shopping-cart
+						span.text Checkout
 		section.light#body
 			.wrap
+				div.center Order now, and then pick up your shirts at PilotDC!
 				.container
+					.col-sm-2
 					.col-sm-4
+						select(class='selectpicker form-control' title='Choose a size...')
+							option Choose a size...
+							option Small
+							option Medium
+							option Large
+							option Extra Large
+
 						.item#ladies
 							div.check.fa.fa-check-circle
-							div.title Ladies' Shirt
-							div.price $15.00
-							img(class="img" src="/img/shirts/ladies.jpeg" alt="Ladies' Shirt")
-							div.description This classic fitted T is our most popular style for Women.
-							div.click (Click to Select)
-
-						select(class='selectpicker' title='Choose a size...')
-							option Choose a size...
-							option Small
-							option Medium
-							option Large
-							option Extra Large
+							div.overlay-text
+								div.text-inner
+									div.title Ladies' Shirt
+									div.price $15.00
+									div.click (Click to Select)
 				
-					.col-sm-4
-						.item#hoodie
-							div.check.fa.fa-check-circle
-							div.title Unisex Hoodie
-							div.price $20.00
-							img(class="img" src="/img/shirts/hoodie.jpeg" alt="Unisex Hoodie")
-							div.description Our take on the classic drawstring sport hoody.
-							div.click (Click to Select)
+					//- .col-sm-4
+					//- 	select(class='selectpicker form-control' title='Choose a size...')
+					//- 		option Choose a size...
+					//- 		option Small
+					//- 		option Medium
+					//- 		option Large
+					//- 		option Extra Large
 
-						select(class='selectpicker' title='Choose a size...')
+					//- 	.item#hoodie
+					//- 		div.check.fa.fa-check-circle
+					//- 		div.pre-order-only 
+					//- 			span Pre-order only! 
+					//- 		div.overlay-text
+					//- 			div.text-inner
+					//- 				div.title Unisex Hoodie
+					//- 				div.price $30.00
+					//- 				div.click (Click to Select)
+
+					.col-sm-4
+						select(class='selectpicker form-control' title='Choose a size...')
 							option Choose a size...
 							option Small
 							option Medium
 							option Large
 							option Extra Large
 
-					.col-sm-4
 						.item#unisex
 							div.check.fa.fa-check-circle
-							div.title Unisex Shirt
-							div.price $15.00
-							img(class="img" src="/img/shirts/unisex.jpeg" alt="Unisex Shirt")
-							div.description The softest, smoothest, best-looking T-shirt available.
-							div.click (Click to Select)
+							div.overlay-text
+								div.text-inner
+									div.title Unisex Shirt
+									div.price $15.00
+									div.click (Click to Select)
+					.col-sm-2
+				
+		div#popup
+			div.form-container
+					div.close.fa.fa-times#js-closeForm
+					div.inputs.form-inline
+						form#checkoutForm
+							div.form-group#nameGroup
+								input(type="text" name="name" class="form-control" placeholder="Name" id="nameField")
+							div.form-group#emailGroup
+								input(type="email" name="email" class="form-control" placeholder="Email" id="emailField")
 
-						select(class='selectpicker' title='Choose a size...')
-							option Choose a size...
-							option Small
-							option Medium
-							option Large
-							option Extra Large
-							
-				div#button-container
-					div.button.above.visible#js-checkoutButton
-						i.fa.fa-shopping-cart
-						span Checkout - 
-						span#price $00.00
-					div.slide-container
-						div.underneath#js-slideForm
-							div.close.fa.fa-times#js-closeForm
-							div.inputs.form-inline
-								form#checkoutForm
-									input(type="text" name="name" class="form-control" placeholder="Name" id="nameField")
-									input(type="email" name="email" class="form-control" placeholder="Email" id="emailField")
-									input(type="hidden" name="order" id="orderField" value="")
-									input(type="hidden" name="total" id="totalField" value="0")
-									input(type="hidden" name="paid" id="paidField" value="false")
-									input(type="hidden" name="stripe" id="stripeField" value="")
-									input(type="submit" name="submit" id="js-submitForm" style="display: none;")
-							div.button.double
-								div.half-button.left#left-button 
-									i.fa.fa-credit-card
-									span Pay online
-								div.half-button.right#right-button 
-									i.fa.fa-money
-									span Pay at event
+					div.button.double#js-orderButton
+						div.half-button.left#left-button 
+							i.fa.fa-credit-card
+							span Pay online
+						div.half-button.right#right-button 
+							i.fa.fa-money
+							span Pay at event
+					div.center Save 10% by ordering with your credit card!
 		
 		<script src="//checkout.stripe.com/checkout.js"></script>
-		<script src="//s3.amazonaws.com/fireform/fireform.min.js"></script>
+		<script src="https://s3.amazonaws.com/fireform/fireform.min.js"></script>
 		<script data-main="/js/store.js" src="/js/require.js"></script>
+		<script  src="https://s3.amazonaws.com/fireform/fireform.min.js"></script>
