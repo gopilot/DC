@@ -8,7 +8,7 @@ var fs = require('fs');
 var deploy = require("gulp-gh-pages");
 var static = require('node-static');
 
-var outPath = "../out";
+var outPath = "../out/dayof";
 
 //
 // Create a node-static server instance to serve the './public' folder
