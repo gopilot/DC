@@ -1,20 +1,20 @@
-title: PilotPhilly
-city: Philadelphia
+title: PilotDC
+city: DC
 event_id: 544eebe0f92f0c00079ead20
 price: 0
 date:
-    display: August 4, 9a-5p
+    display: August 8-9
 location:
-    name: Kistler Library @ Rosemont College
+  name: HUM Ballroom @ GMU
 sponsor_doc: /sponsorship.pdf
-hours_long: 8
+hours_long: "2 day"
 schedule:
     6:00pm: Event Ends
 analytics: UA-43652846-4
 facebook_event: https://www.facebook.com/events/827141887330633/
 share_url: http://philly.gopilot.org/
-tweet_text: "I'm going to #PilotPhilly on August 4! You should join me: "
-google_maps: "https://www.google.com/maps/place/Rosemont+College/@40.0347733,-75.3325294,15z"
+tweet_text: "I'm going to #PilotDC on August 4! You should join me: "
+google_maps: "https://www.google.com/maps/place/The+Hub/@38.83066,-77.304746,15z"
 sections:
     schedule: false
     sponsors: false

@@ -23,7 +23,7 @@ function runServer(port) {
 
 
 gulp.task('deploy', ['stylus', 'html', 'static', 'scripts'], function () {
-    var remote = "https://github.com/gopilot/philly.git";
+    var remote = "https://github.com/gopilot/dc.git";
 
     return gulp.src("./out/**/*")
         .pipe( deploy( remote ) );
@@ -67,4 +67,3 @@ gulp.task('watch', function() {
     gulp.watch('./scripts/**/*.js', ['scripts'])
     gulp.watch(['./*.jade', './components/*.jade', './info.yaml'], ['html']);
 });
-
