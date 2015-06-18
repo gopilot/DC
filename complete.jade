@@ -1,0 +1,100 @@
+doctype
+html
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		title Complete your #{title} registration
+		link(rel='stylesheet', href='/font/icon-7/css/icons.css')
+		link(rel='stylesheet', href='https://static.gopilot.org/complete.css')
+		link(rel='stylesheet', href='/font/fonts.css')
+	body
+		.error-container(style="")
+			.centered
+				h3.error-title Uh oh... Something went wrong.
+				.error-subject Try to reload the page.
+					| If that doesn't work, send us an email at
+					a.email-link(href="mailto:fly@gopilot.org")  fly@gopilot.org
+					|  and we'll help fix it.
+					|  (You might’ve already filled this out.)
+
+		.content
+			h1.title Complete your #{title} Registration
+			form.complete
+				span.optional * All fields are required unless noted otherwise.
+				.input-container.name
+					.input-label Name
+					input.js-name(required placeholder="Student's Name" type="text" data-validation="name" name="name" data-error="Name is invalid.")
+					i.status
+				.input-container.email
+					.input-label Email
+					input.js-email(required placeholder="student@example.com" type="email" data-validation="email" name="email" data-error="Email is invalid.")
+					i.status
+				.input-container.password
+					.input-label Pilot Password
+						span.tiny  (Will be needed to log in later)
+					input(required placeholder="Password" type="password" data-validation="password" name="password" data-error="The password must be at least 8 characters long.")
+					input(required placeholder="Confirm Password" type="password" data-validation="password" name="confirm_password" data-error="The passwords must match.")
+				.input-container.half.half-lg.gender
+					.input-label Gender
+					.toggle-group(name="gender" data-error="Gender is required.")
+						.toggle-button(value="male") Male
+						.toggle-button(value="female") Female
+						.toggle-button(value="other") Other
+				.input-container.age
+					.input-label Birth Date
+					input(required placeholder="mm/dd/yyyy" type="text" pattern='[0-9\/]{7,9}' data-validation="date" name="birth_date" data-error="Birth date is invalid.")
+					i.status
+				.input-container.grade
+					.input-label Grade
+					.toggle-group(name="grade" data-error="Grade is required.")
+						.toggle-button(value="9") 9th
+						.toggle-button(value="10") 10th
+						.toggle-button(value="11") 11th
+						.toggle-button(value="12") 12th
+						.toggle-button(value="other") Other
+				.input-container.cell
+					.input-label Cell Phone
+					input(required placeholder="555-555-5555" type="text" pattern='[0-9]{10}' data-validation="phone" name="phone" data-error="Phone number is invalid.")
+					i.status
+				.input-container.emergency-name
+					.input-label Emergency Contact Name
+					input(required placeholder="Contact's Name" type="text" pattern='' data-validation="name" name="emergency_name" data-error="Emergency Contact Name is invalid.")
+					i.status
+				.input-container.emergency-email
+					.input-label Emergency Contact Email
+					input(required placeholder="adult@example.com" type="email" data-validation="email" name="emergency_email" data-error="Emergency Contact Email is invalid.")
+					i.status
+				.input-container.emergency-phone
+					.input-label Emergency Contact Cell Phone
+					input(required placeholder="555-555-5555" type="text" pattern='[0-9]{10}' data-validation="phone" name="emergency_phone" data-error="Emergency Contact Phone is invalid.")
+					i.status
+				.input-container.half.half-lg.has-experience
+					.input-label Do you have previous programming experience?
+					.toggle-group(name="has_experience" data-error="The 'previous experience' question is blank.")
+						.toggle-button(value="1") Yes
+						.toggle-button(value="0") No
+				.input-container.half.half-sm.experience.hidden
+					.input-label How many years?
+					input(type="text" pattern="[0-9]*" name="experience_years" data-error="The years of programming experience is invalid.")
+					i.status
+				.input-container.tshirt
+					.input-label T-shirt size
+					.toggle-group.tshirt-type(name="shirt_type" data-error="Shirt type is required.")
+						.toggle-button(value="unisex") Unisex
+						.toggle-button(value="womens") Women
+					.toggle-group.tshirt-size(name="shirt_size" data-error="Shirt size is required.")
+						.toggle-button(value="small") Small
+						.toggle-button(value="medium") Medium
+						.toggle-button(value="large") Large
+				.input-container.diet
+					.input-label Please list any dietary restrictions:
+					textarea(name="dietary" placeholder="(optional)").js-dietary
+				.input-container.other
+					.input-label Anything else you want us to know?
+					textarea(name="event_notes" placeholder="(optional)").js-other
+				.submit-button-container
+					a.button.large.blue.js-submit Complete Registration
+				.error-messages
+
+		script(type="text/javascript" src="https://static.gopilot.org/complete.js" async)
+		<script>var PILOT_EVENT_ID = "#{event_id}";</script>

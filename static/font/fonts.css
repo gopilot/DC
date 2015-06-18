@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'DIN';
+    font-weight: 200;
+    src: url('dinl____.eot');
+    src: url('dinl____.eot') format('embedded-opentype'), url('dinl____.woff') format('woff'), url('dinl____.ttf') format('truetype'), url('dinl____.svg#DINLightRegular') format('svg');
+}
+@font-face {
+    font-family: 'DIN';
+    font-weight: 400;
+    src: url('dinm____.eot');
+    src: url('dinm____.eot') format('embedded-opentype'), url('dinm____.woff') format('woff'), url('dinm____.ttf') format('truetype'), url('dinm____.svg#DINMediumRegular') format('svg');
+}   
+@font-face {
+    font-family: 'Clarendon';
+    src: url('clarendonltstd-webfont.eot');
+    src: url('clarendonltstd-webfont.eot?#iefix') format('embedded-opentype'), url('clarendonltstd-webfont.woff') format('woff'), url('clarendonltstd-webfont.ttf') format('truetype'), url('clarendonltstd-webfont.svg#clarendon_lt_stdregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

@@ -1,0 +1,466 @@
+@font-face {
+  font-family: 'DIN';
+  font-weight: 200;
+  src: url("../font/dinl____.eot");
+  src: url("../font/dinl____.eot") format('embedded-opentype'), url("../font/dinl____.woff") format('woff'), url("../font/dinl____.ttf") format('truetype'), url("../font/dinl____.svg#DINLightRegular") format('svg');
+}
+@font-face {
+  font-family: 'DIN';
+  font-weight: 400;
+  src: url("../font/dinm____.eot");
+  src: url("../font/dinm____.eot") format('embedded-opentype'), url("../font/dinm____.woff") format('woff'), url("../font/dinm____.ttf") format('truetype'), url("../font/dinm____.svg#DINMediumRegular") format('svg');
+}
+@font-face {
+  font-family: 'Clarendon';
+  src: url("../font/clarendonltstd-webfont.eot");
+  src: url("../font/clarendonltstd-webfont.eot?#iefix") format('embedded-opentype'), url("../font/clarendonltstd-webfont.woff") format('woff'), url("../font/clarendonltstd-webfont.ttf") format('truetype'), url("../font/clarendonltstd-webfont.svg#clarendon_lt_stdregular") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DIN';
+  font-weight: 200;
+  src: url("../font/dinl____.eot");
+  src: url("../font/dinl____.eot") format('embedded-opentype'), url("../font/dinl____.woff") format('woff'), url("../font/dinl____.ttf") format('truetype'), url("../font/dinl____.svg#DINLightRegular") format('svg');
+}
+@font-face {
+  font-family: 'DIN';
+  font-weight: 400;
+  src: url("../font/dinm____.eot");
+  src: url("../font/dinm____.eot") format('embedded-opentype'), url("../font/dinm____.woff") format('woff'), url("../font/dinm____.ttf") format('truetype'), url("../font/dinm____.svg#DINMediumRegular") format('svg');
+}
+@font-face {
+  font-family: 'Clarendon';
+  src: url("../font/clarendonltstd-webfont.eot");
+  src: url("../font/clarendonltstd-webfont.eot?#iefix") format('embedded-opentype'), url("../font/clarendonltstd-webfont.woff") format('woff'), url("../font/clarendonltstd-webfont.ttf") format('truetype'), url("../font/clarendonltstd-webfont.svg#clarendon_lt_stdregular") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+body {
+  line-height: 1;
+  color: #272727;
+  background: #fff;
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+caption,
+th,
+td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+a img {
+  border: none;
+}
+html {
+  width: 100%;
+  height: 100% !important;
+}
+body {
+  width: 100%;
+  height: 100%;
+  color: #272727;
+  font-family: DIN;
+  font-weight: 200;
+  font-size: 22px;
+  line-height: 1.4;
+  background: #fff;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  border-bottom: 1px solid #78bae2;
+}
+strong {
+  font-weight: 500;
+}
+#wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0px auto;
+}
+p {
+  margin: 19px 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+h1 {
+  font-family: DIN;
+  font-size: 102px;
+  text-shadow: 1px 2px 0px #000;
+  margin-bottom: 0;
+}
+h2 {
+  font-family: DIN;
+  font-weight: 200;
+  font-size: 56px;
+  margin: 0.5em 0;
+}
+h3 {
+  font-family: DIN;
+  font-weight: 200;
+  font-size: 34px;
+  margin-top: 0;
+}
+h1 + h3 {
+  margin-top: 15px;
+}
+.black {
+  color: #333;
+}
+.blue {
+  color: #78bae2;
+}
+.white {
+  color: #fff;
+}
+.wrap,
+header {
+  max-width: 1200px;
+  margin: 0px auto;
+}
+.content {
+  max-width: 900px;
+}
+.upper {
+  text-transform: uppercase;
+}
+.small {
+  font-family: DIN;
+  font-size: 18px;
+}
+.sans-serif {
+  font-family: DIN;
+  font-weight: 400;
+}
+.sans-serif-thin {
+  font-family: DIN;
+  font-weight: 200;
+}
+.serif {
+  font-family: Clarendon;
+}
+.center {
+  margin: 0px auto;
+  text-align: center;
+}
+.pull-left {
+  display: inline;
+  float: left;
+}
+.pull-right {
+  display: inline;
+  float: right;
+}
+.pull-bottom {
+  position: absolute;
+  bottom: 0;
+}
+.pull-bottom.pull-right {
+  right: 0;
+}
+.pull-bottom.pull-left {
+  left: 0;
+}
+.pull-bottom.center {
+  left: 0;
+  right: 0;
+}
+.vertical-align {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.vertical-align.pull-right {
+  right: 0;
+}
+.vertical-align.pull-left {
+  left: 0;
+}
+.vertical-align.center {
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+#title {
+  margin: auto;
+  margin-bottom: 15px;
+  margin-top: 20px;
+  padding-top: 0px;
+  font-size: 2rem;
+  color: #272727;
+  font-family: DIN;
+}
+#subtitle {
+  font-size: 50px;
+}
+#actions {
+  list-style-type: decimal;
+  font-size: 30px;
+  margin-top: 50px;
+  font-weight: 400;
+}
+#actions li {
+  font-size: 22px;
+  color: #147cba;
+  margin-left: 10%;
+}
+#list-title {
+  margin-left: 90px;
+  color: #272727;
+  font-size: 25px;
+  font-family: DIN;
+  margin-bottom: -20px;
+  font-weight: bold;
+}
+.button {
+  text-transform: uppercase;
+  background: rgba(39,39,39,0.2);
+  color: #fff;
+  padding: 8px 18px;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
+  -o-transition: background 0.2s;
+  -ms-transition: background 0.2s;
+  transition: background 0.2s;
+  font-weight: 200;
+  padding: 15px;
+  margin: 25px;
+  width: 100%;
+  font-size: 1.5rem;
+  -webkit-border-radius: 40px;
+  border-radius: 40px;
+}
+.button:hover {
+  background: rgba(39,39,39,0.5);
+}
+.button.disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.4;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+  filter: alpha(opacity=40);
+}
+.button.block {
+  display: block;
+}
+.button i {
+  display: inline-block;
+  text-align: center;
+  font-size: 1em;
+  width: 30px;
+  padding: 10px;
+  line-height: 100%;
+  border-right: 2px solid #fff;
+  float: left;
+}
+.button span {
+  display: inline-block;
+  padding: 10px;
+  text-align: center;
+  height: 100%;
+  line-height: 100%;
+}
+.button:hover {
+  text-decoration: none;
+  border-bottom: none;
+}
+.button-small {
+  width: 270px;
+}
+.button-large {
+  width: 400px;
+}
+.button-container {
+  display: block;
+  margin: auto;
+  width: auto;
+  text-align: center;
+}
+.button-container a {
+  -webkit-box-shadow: 0px 4px 4px #808080;
+  box-shadow: 0px 4px 4px #808080;
+}
+#waiverButton {
+  background-color: #535353;
+}
+#waiverButton:hover {
+  background-color: #333;
+}
+#eventButton {
+  background-color: #78bae2;
+}
+#eventButton:hover {
+  background-color: #588ab2;
+}
+#tweet {
+  background-color: #4099ff;
+  width: 200px;
+}
+#tweet:hover {
+  background-color: #1068df;
+}
+#share {
+  background-color: #3b5998;
+  width: 200px;
+}
+#share:hover {
+  background-color: #0b2968;
+}
+#facebookLike {
+  background-color: #3b5998;
+}
+#facebookLike:hover {
+  background-color: #0b2968;
+}
+#twitterFollow {
+  background-color: #4099ff;
+}
+#twitterFollow:hover {
+  background-color: #1069df;
+}
+#instagramFollow {
+  background-color: #80413c;
+}
+#instagramFollow:hover {
+  background-color: #50110c;
+}
+@media (max-width: 900px) {
+  .wrap {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .button {
+    margin: 20px;
+  }
+  li {
+    margin-left: 4%;
+  }
+  #title {
+    line-height: 65px;
+    margin-top: 20px;
+  }
+}
+@media (max-width: 525px) {
+  .wrap {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .button-large {
+    width: 90%;
+  }
+}
+@media (max-width: 430px) {
+  .button-large {
+    width: 100%;
+    padding: 15px;
+    margin-left: -15%;
+  }
+  .button-large span {
+    font-size: 23px;
+    padding-right: 5px;
+  }
+  .button-small {
+    margin-top: 15px;
+  }
+  .button {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: -25px;
+    width: 100%;
+  }
+  #actions {
+    margin-left: 20px;
+  }
+  #actions #list-title {
+    margin-left: -35px;
+  }
+  #actions li {
+    margin-left: 5px;
+  }
+}

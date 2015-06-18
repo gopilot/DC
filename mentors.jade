@@ -1,0 +1,83 @@
+doctype
+html
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		title Register to mentor at #{title}
+		link(rel='stylesheet', href='/font/icon-7/css/icons.css')
+		link(rel='stylesheet', href='https://static.gopilot.org/complete.css')
+		link(rel='stylesheet', href='/font/fonts.css')
+	body
+		.error-container
+			.centered
+				h3.error-title Uh oh... It looks like something went wrong.
+				.error-subject Send us an email at
+					a.email-link(href="mailto:fly@gopilot.org")  fly@gopilot.org
+					|  and we'll help fix it.
+
+		.content
+			h1.title Register to mentor at #{title}
+			form.complete
+				span.optional * All fields are required unless noted otherwise.
+				.input-container.name
+					.input-label Name
+					input.js-name(required placeholder="Full Name" type="text" data-validation="name" name="name")
+					i.status
+				.input-container.email
+					.input-label Email
+					input.js-email(required placeholder="user@example.com" type="email" data-validation="email" name="email")
+					i.status
+				.input-container.cell
+					.input-label Cell Phone
+					input(required placeholder="555-555-5555" type="text" pattern='[0-9]{10}' data-validation="phone" name="phone")
+					i.status
+				.input-container.password
+					.input-label Pilot Password
+						span.tiny  (Will be needed to log in later)
+					input(required placeholder="Password" type="password" data-validation="password" name="password")
+					i.status
+					input(required placeholder="Confirm Password" type="password" data-validation="password" name="confirm_password")
+				.input-container.gender
+					.input-label Gender
+					.toggle-group(name="gender")
+						.toggle-button(value="male") Male
+						.toggle-button(value="female") Female
+						.toggle-button(value="other") Other
+				.input-container.job-title
+					.input-label Job Title/Role
+					input(required placeholder="Developer, Manager, etc" type="text" pattern='' data-validation="text" name="title")
+					i.status
+				.input-container.company
+					.input-label Company/Organization
+					input(required placeholder="Startup Corp." type="text" pattern='' data-validation="text" name="company")
+					i.status
+				.input-container.has-experience
+					.input-label Do you have programming experience?
+					.toggle-group(name="has_experience")
+						.toggle-button(value="1") Yes
+						.toggle-button(value="0") No
+				.input-container.skills.hidden
+					.input-label What languages/technologies do you have experience with?
+					textarea(required name="skills" placeholder="iOS, Android, Web, UX, etc")
+				.input-container.profiles
+					.input-label Online profile(s)
+					textarea(required name="profiles" placeholder="LinkedIn, GitHub, Personal site, etc")
+				.input-container.tshirt
+					.input-label T-shirt size
+					.toggle-group.tshirt-type(name="shirt_type")
+						.toggle-button(value="unisex") Unisex
+						.toggle-button(value="womens") Women
+					.toggle-group.tshirt-size(name="shirt_size")
+						.toggle-button(value="small") Small
+						.toggle-button(value="medium") Medium
+						.toggle-button(value="large") Large
+				.input-container.diet
+					.input-label Please list any dietary restrictions:
+					textarea(placeholder="(optional)").js-dietary
+				.input-container.other
+					.input-label Anything else you want us to know?
+					textarea(placeholder="(optional)").js-other
+				a.button.large.blue.js-submit Complete Registration
+
+		script(type="text/javascript" src="https://static.gopilot.org/mentors.js" async)
+		<script>var PILOT_EVENT_ID = "#{event_id}";</script>
