@@ -1,2 +1,2 @@
 User-agent: *
-Disallow: /confirmation.html
+Disallow: /complete.html
