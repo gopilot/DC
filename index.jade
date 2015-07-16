@@ -14,6 +14,10 @@ html
 
         #registerModal.modal
             .modal-content.box.slate.step-1
+                .register-step-2
+                    h1.modal-title You're almost there!
+                    .text Thanks for registering! We're excited to see you at #{title}! We just need to know a few more things about you to complete your registration.
+                    a.button.large.block.js-complete(href="") Complete your Profile
                 .register-step-1
                     h1.modal-title Register for #{title} - $#{price}
                     form.register-form(novalidate)
@@ -60,10 +64,6 @@ html
                             a.button.large.js-submit(action="submit") Register
 
                     a.show-discount Have a discount code?
-                .register-step-2
-                    h1.modal-title You're almost there!
-                    .text Thanks for registering! We're excited to see you at #{title}! We just need to know a few more things about you to complete your registration.
-                    a.button.large.block.js-complete(href="") Complete your Profile
                 i.pe-7s-close.close-modal.js-modal-close
 
 
