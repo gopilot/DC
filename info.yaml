@@ -9,7 +9,10 @@ location:
 sponsor_doc: /sponsorship.pdf
 hours_long: "2 day"
 schedule:
-    6:00pm: Event Ends
+    "10:00am": Kickoff
+    "5:00pm": End of Day 1
+    "10:00am": Day 2 Kickoff
+    "7:00pm": End of PilotDC
 analytics: UA-43652846-4
 facebook_event: https://www.facebook.com/events/827141887330633/
 share_url: http://philly.gopilot.org/
