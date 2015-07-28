@@ -139,8 +139,18 @@ html
             .section.schedule.large#schedule
                 .box.title.blue.span-3
                     h4 Schedule
-
-                each description, time in schedule
+                .row
+                    .box.span-12.schedule-day
+                        h4 Saturday, August 8th
+                each description, time in schedule1
+                    .row
+                        .box.span-3.typ-right
+                            h6= time
+                        .box.span-9= description
+                .row 
+                    .box.span-12.schedule-day
+                        h4 Sunday, August 9th
+                each description, time in schedule2
                     .row
                         .box.span-3.typ-right
                             h6= time
