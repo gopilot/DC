@@ -31,4 +31,5 @@ tweet_text: "I'm going to #PilotDC on August 4! You should join me: "
 google_maps: "https://www.google.com/maps/place/The+Hub/@38.83066,-77.304746,15z"
 sections:
   schedule: true
-  sponsors: false
+  sponsors: true
+  projects: true
