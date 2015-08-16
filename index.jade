@@ -7,7 +7,7 @@ html
         meta(name='description', content=title+' is a #{hours_long} event where you can learn to build apps, websites, and more!')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         link(rel='stylesheet', href='/font/icon-7/css/icons.css')
-        link(rel='stylesheet', href='//localhost:9000/master.css')
+        link(rel='stylesheet', href='//static.gopilot.org/master.css')
         link(rel='stylesheet', href='/font/fonts.css')
     body
         <script>if(location.hostname === 'gopilot.org'){window.location = 'https://dc.gopilot.org';}</script>
@@ -168,5 +168,5 @@ html
 
 
         <script>var PILOT_EVENT_ID = "#{event_id}";var PILOT_EVENT_PRICE=#{price};</script>
-        script(type="text/javascript" src="//localhost:9000/projects.js")
+        script(type="text/javascript" src="//static.gopilot.org/projects.js")
         <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', '#{analytics}', 'gopilot.org');ga('send', 'pageview');</script>
